@@ -17,9 +17,7 @@ constructor(private authService : AuthService,private router :Router){
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let isloggedIn ;
-      this.authService.getLogedIn().subscribe(
-        (res)=> isloggedIn =res
-      )
+      isloggedIn= this.authService.getLogedIn().value
       if(isloggedIn)
            return true;
 

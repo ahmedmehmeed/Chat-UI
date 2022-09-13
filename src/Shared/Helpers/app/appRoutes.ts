@@ -20,11 +20,19 @@ export const appRoutes = {
             sub: ""
          }
      },
+
      home: {
       full: "home",
       main: "home",
       sub: "",
-   }, 
+ 
+      userDetails: {
+         full: "home/user/",
+         main: "user/:id",
+         sub: ""
+      },  
+
+         }
 
 
 
