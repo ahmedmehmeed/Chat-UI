@@ -120,11 +120,9 @@
                 </div>
               </form>
  -->
-              <form [formGroup]="LoginForm" class="row g-3 needs-validation" novalidate>
+              <form [formGroup]="LoginForm" class="row g-3 needs-validation" novalidate >
                 <div class="col-12">
-                  <label for="validationCustomUsername" class="form-label"
-                    >Email</label
-                  >
+                  <label for="validationCustomUsername" class="form-label">Email</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend"
                       >@</span
@@ -137,10 +135,17 @@
                       placeholder="Please Enter an Email"
                       aria-label="Please Enter an Email"
                       aria-describedby="inputGroupPrepend"
+                      [ngClass]="{ 'is-invalid': isSubmittedlogin && loginControls.email.errors || loginControls.email.touched && loginControls.email.errors  }"
                       required
                     />
-                    <div class="invalid-feedback">Please Enter an Email.</div>
-                    <div class="valid-feedback">Looks good!</div>
+                  </div>
+                  <div *ngIf="isSubmittedlogin && loginControls.email.errors || loginControls.email.touched && loginControls.email.errors ">
+                    <div class="invalid-feedback" *ngIf="loginControls.email.errors.required">
+                      Email Is Required
+                    </div>
+                    <div class="invalid-feedback" *ngIf="loginControls.email.errors.email">
+                      Email Is Invalid
+                    </div>                     
                   </div>
                 </div>
                 <div class="input-group">
@@ -153,10 +158,17 @@
                     class="form-control"
                     placeholder="Enter Password"
                     aria-label="Enter Password"
-                    aria-describedby="basic-addon4"
+                    [ngClass]="{ 'is-invalid': isSubmittedlogin && loginControls.password.errors || loginControls.password.touched && loginControls.password.errors  }"
+                    required
                   />
-                  <div class="invalid-feedback">Please Enter an Email.</div>
-                  <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div *ngIf=" isSubmittedlogin && loginControls.password.errors || loginControls.password.touched && loginControls.password.errors ">
+                  <div  class="invalid-feedback" *ngIf="loginControls.password.errors.required">
+                       Password Is Required
+                  </div>
+                  <div  class="invalid-feedback" *ngIf="loginControls.password.errors.PasswordStrengthValidator">
+                    Password Is Invalid
+                 </div>
                 </div>
 
                 <div class="form-check mb-4">
@@ -184,8 +196,7 @@
                   <button
                     class="btn btn-primary waves-effect waves-light"
                     type="submit"
-                    (click)="login()"
-                  >
+                    (click)="login()" [disabled]="!LoginForm.valid" >
                     Sign in
                   </button>
                 </div>

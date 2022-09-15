@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PasswordStrengthValidator } from '../../../../Shared/Helpers/validators/password-strength-validator';
 import { AuthService } from '../../../../Shared/Services/Auth/authservice';
 
 @Component({
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 /*   UI */
 
 isloggedIn:boolean=false;
+isSubmittedlogin:boolean=false;
 
 
   constructor( 
@@ -49,8 +51,9 @@ isloggedIn:boolean=false;
 
   initloginForm(){
    this.LoginForm=this.formBuilder.group({
-    email:['',Validators.required,Validators.email],
-    password:['',Validators.required]
+    email:['',[Validators.required,Validators.email]],
+    password:['',Validators.compose([
+      Validators.required, Validators.minLength(8), PasswordStrengthValidator])]
   })  
   }
 
