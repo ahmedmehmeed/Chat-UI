@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HomeRoutingModule } from './home-routing.module';
-import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { UserCardComponent } from './user-card/user-card.component';
+import { SharedModule } from '../sharedModule/shared.module';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
-    UserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UsersListComponent,
+    UserCardComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule
   ]
 })
 export class HomeModule { }

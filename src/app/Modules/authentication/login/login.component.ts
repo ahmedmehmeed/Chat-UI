@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PasswordStrengthValidator } from '../../../../Shared/Helpers/validators/password-strength-validator';
 import { AuthService } from '../../../../Shared/Services/Auth/authservice';
 
@@ -21,7 +22,8 @@ isSubmittedlogin:boolean=false;
   constructor( 
     private authService:AuthService,
     private formBuilder: FormBuilder,
-    private router:Router
+    private router:Router,
+    private toastr:ToastrService
     ) { }
 
 
@@ -30,6 +32,7 @@ isSubmittedlogin:boolean=false;
     this.initForms();
     this.initIslogedIn();
     this.validation();
+
   }
 
   
@@ -68,7 +71,8 @@ isSubmittedlogin:boolean=false;
     (res)=>{
       this.isloggedIn=true;
       console.log(res)
-    }
+    },
+    (err)=>{}
    )
   }
 

@@ -17,8 +17,6 @@ import { loginResponse } from '../../Models/loginResponse';
 export class AuthService {
 
   isLogedIn=new BehaviorSubject<boolean>(this.isTokenAvailable());
-
-
   private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient,private router : Router){ }
 
@@ -66,6 +64,5 @@ getLogedIn(): BehaviorSubject<boolean>{
   private isTokenAvailable(): boolean {
     return !!localStorage.getItem(LocalStorageKeys.JWT);
   }
-
 
 }

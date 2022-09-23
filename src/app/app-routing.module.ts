@@ -8,7 +8,6 @@ import { appRoutes } from '../Shared/Helpers/app/appRoutes';
 import { AuthGuard } from '../Shared/Helpers/guards/auth.guard';
 import { UnauthGuard } from '../Shared/Helpers/guards/unauth.guard';
 import { content } from "../Shared/Routes/loadingModules";
-import { UserComponent } from './Modules/home/user/user.component';
 
 const routes: Routes = [
   {

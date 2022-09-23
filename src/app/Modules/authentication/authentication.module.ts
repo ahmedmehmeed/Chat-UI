@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SharedModule } from '../sharedModule/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
     AuthenticationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AuthenticationModule { }
