@@ -31,6 +31,11 @@ export const appRoutes = {
          main: "user/:id",
          sub: ""
       },  
+      userEdit: {
+         full: "home/editUser/",
+         main: "editUser/:id",
+         sub: ""
+      },  
 
          }
 

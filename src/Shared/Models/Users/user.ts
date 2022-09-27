@@ -4,7 +4,8 @@ import { RefreshToken } from "./RefreshToken";
     export interface User {
         firstName?: any;
         lastName?: any;
-        birthDate?: Date;
+        birthDate?: string;
+        photoURL?:string;
         created: string;
         lastActive: string;
         knownAs: string;

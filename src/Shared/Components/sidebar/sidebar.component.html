@@ -62,8 +62,6 @@
                         </li> -->
                     </ul>
                 </div>
-                <!-- end side-menu nav -->
-
                 <div class="flex-lg-column d-none d-lg-block">
                     <ul class="nav side-menu-nav justify-content-center">
                         <li class="nav-item">
@@ -74,10 +72,10 @@
 
                         <li class="nav-item btn-group dropup profile-user-dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="assets/images/users/avatar-1.jpg" alt="" class="profile-user rounded-circle">
+                                <img [src]="userProfile.photoURL" alt="" class="profile-user rounded-circle">
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Profile <i class="ri-profile-line float-end text-muted"></i></a>
+                                <a class="dropdown-item"  (click)="navigatetoMyProfile()">Profile <i class="ri-profile-line float-end text-muted"></i></a>
                                 <a class="dropdown-item" href="#">Setting <i class="ri-settings-3-line float-end text-muted"></i></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" (click)="logout()">Log out <i class="ri-logout-circle-r-line float-end text-muted"></i></a>
@@ -88,3 +86,5 @@
                 <!-- Side menu user -->
             </div>
             <!-- end left sidebar-menu -->
+
+      

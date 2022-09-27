@@ -1,4 +1,5 @@
 export interface loginResponse {
+    userId?: string;
     message?: string;
     username: string;
     email: string;

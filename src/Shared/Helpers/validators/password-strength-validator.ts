@@ -13,9 +13,7 @@ export const PasswordStrengthValidator = function (control: AbstractControl): Va
    let numberCharacters = /[0-9]+/g;
    let specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
    if (upperCaseCharacters.test(value) === false || lowerCaseCharacters.test(value) === false || numberCharacters.test(value) === false || specialCharacters.test(value) === false) {
-      return {
-         passwordStrength: true
-      }
+      return {passwordStrength: true}
 
    }
 }

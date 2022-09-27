@@ -5,7 +5,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { SharedModule } from '../sharedModule/shared.module';
-import { TestComponent } from './test/test.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 @NgModule({
@@ -13,12 +15,16 @@ import { TestComponent } from './test/test.component';
     UserDetailsComponent,
     UsersListComponent,
     UserCardComponent,
-    TestComponent
+    UserEditComponent,
+
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxGalleryModule
   ]
 })
 export class HomeModule { }

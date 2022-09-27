@@ -5,6 +5,7 @@ import { AuthGuard } from '../../../Shared/Helpers/guards/auth.guard';
 import { SharedModule } from '../sharedModule/shared.module';
 import { TestComponent } from './test/test.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 import { UsersListComponent } from './users-list/users-list.component';
 
 const routes: Routes = [
@@ -24,8 +25,8 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'test',
-        component: TestComponent,
+        path: appRoutes.home.userEdit.main,
+        component: UserEditComponent,
         pathMatch: "full",
         canActivate: [AuthGuard]
       }

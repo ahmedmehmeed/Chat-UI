@@ -6,3 +6,28 @@
     margin-top: 30px;
     margin-top: 30px;
 }
+
+.User-cards {
+    background-color: var(--bs-card-bg);
+    -webkit-box-shadow: 0 2px 4px rgb(15 34 58 / 12%);
+    box-shadow: 0 2px 4px rgb(15 34 58 / 12%);
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+
+
+/* Media */
+
+@media (max-width: 991.98px){
+    .chat-leftsidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        z-index: 99;
+    }
+}

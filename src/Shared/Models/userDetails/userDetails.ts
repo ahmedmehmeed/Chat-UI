@@ -5,7 +5,7 @@ import { PhotoDto } from "./PhotoDto";
         firstName?: any;
         lastName?: any;
         age: number;
-        phoneURL: string;
+        photoURL: string;
         birthDate: Date;
         created: Date;
         lastActive: Date;

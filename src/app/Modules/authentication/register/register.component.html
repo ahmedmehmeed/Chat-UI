@@ -17,58 +17,119 @@
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="p-3">
-                                    <form [formGroup]="RegisterForm">
+                                    <form [formGroup]="RegisterForm" novalidate>
                                         <div class="mb-3">
-                                            <label class="form-label">FirstName </label>
-                                            <div class="input-group bg-soft-light rounded-3  mb-3">
+                                            <label class="form-label">Firstname </label>
+                                            <div class="input-group bg-soft-light rounded-3">
                                                 <span class="input-group-text text-muted" id="basic-addon5">
                                                     <i class="ri-shield-user-fill"></i>
                                                 </span>
-                                                <input formControlName="firstName" type="email" class="form-control form-control-lg bg-soft-light border-light" placeholder="Enter FirstName" aria-label="Enter FirstName" aria-describedby="basic-addon5">
+                                                <input 
+                                                  formControlName="firstName" 
+                                                  class="form-control bg-soft-light border-light" 
+                                                  placeholder="Enter Firstname" 
+                                                  aria-label="Enter Firstname" 
+                                                  aria-describedby="basic-addon5"
+                                                  [ngClass]="{ 'is-invalid': isRegistered && RegisterControls.firstName.errors || RegisterControls.firstName.touched && RegisterControls.firstName.errors}"
+                                                  >
                                     
                                             </div>
+                                            <div *ngIf="isRegistered && RegisterControls.firstName.errors || RegisterControls.firstName.touched && RegisterControls.firstName.errors">
+                                                <div class="invalid-feedback" *ngIf="RegisterControls.firstName.errors.required">
+                                                  Firstname Is Required
+                                                </div>                
+                                              </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label">LastName </label>
-                                            <div class="input-group bg-soft-light rounded-3  mb-3">
+                                            <label class="form-label">Lastname </label>
+                                            <div class="input-group bg-soft-light rounded-3">
                                                 <span class="input-group-text text-muted" id="basic-addon5">
                                                     <i class="ri-shield-user-fill"></i>
                                                 </span>
-                                                <input formControlName="lastName" type="email" class="form-control form-control-lg bg-soft-light border-light" placeholder="Enter LastName" aria-label="Enter LastName" aria-describedby="basic-addon5">
-                                    
+                                                <input 
+                                                formControlName="lastName"  
+                                                class="form-control bg-soft-light border-light"
+                                                  placeholder="Enter LastName" 
+                                                  aria-label="Enter LastName" aria-describedby="basic-addon5"
+                                                  [ngClass]="{ 'is-invalid': isRegistered && RegisterControls.lastName.errors || RegisterControls.lastName.touched && RegisterControls.lastName.errors}"
+                                                  >                                   
                                             </div>
+                                            <div *ngIf="isRegistered && RegisterControls.lastName.errors || RegisterControls.lastName.touched && RegisterControls.lastName.errors">
+                                                <div class="invalid-feedback" *ngIf="RegisterControls.lastName.errors.required">
+                                                  Lastname Is Required
+                                                </div>                
+                                              </div>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
-                                            <div class="input-group bg-soft-light rounded-3  mb-3">
+                                            <div class="input-group bg-soft-light rounded-3">
                                                 <span class="input-group-text text-muted" id="basic-addon5">
                                                     <i class="ri-mail-line"></i>
                                                 </span>
-                                                <input formControlName="email" type="email" class="form-control form-control-lg bg-soft-light border-light" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="basic-addon5">
+                                                <input 
+                                                formControlName="email"
+                                                [ngClass]="{ 'is-invalid': isRegistered && RegisterControls.email.errors || RegisterControls.email.touched && RegisterControls.email.errors}"
+                                                 type="email"
+                                                  class="form-control  bg-soft-light border-light"
+                                                   placeholder="Enter Email" aria-label="Enter Email"
+                                                    aria-describedby="basic-addon5">
                                                 
                                             </div>
+                                            <div *ngIf="isRegistered && RegisterControls.email.errors || RegisterControls.email.touched && RegisterControls.email.errors">
+                                                <small class="invalid-feedback" *ngIf="RegisterControls.email.errors.required">
+                                                  Email Is Required
+                                                </small>
+                                                <div class="invalid-feedback" *ngIf="RegisterControls.email.errors.email">
+                                                  Email Is Invalid
+                                                </div>                     
+                                              </div>
                                         </div>
     
                                         <div class="mb-3">
                                             <label class="form-label">Username</label>
-                                            <div class="input-group bg-soft-light mb-3 rounded-3">
+                                            <div class="input-group bg-soft-light rounded-3">
                                                 <span class="input-group-text border-light text-muted" id="basic-addon6">
                                                     <i class="ri-user-2-line"></i>
                                                 </span>
-                                                <input formControlName="userName"  type="text" class="form-control form-control-lg bg-soft-light border-light" placeholder="Enter Username" aria-label="Enter Username" aria-describedby="basic-addon6">
-                                                
+                                                <input 
+                                                [ngClass]="{ 'is-invalid': isRegistered && RegisterControls.userName.errors || RegisterControls.userName.touched && RegisterControls.userName.errors}"
+                                                formControlName="userName"
+                                                type="text" class="form-control  bg-soft-light border-light" 
+                                                placeholder="Enter Username" aria-label="Enter Username"
+                                                aria-describedby="basic-addon6">
                                             </div>
+                                            <div *ngIf="isRegistered && RegisterControls.userName.errors || RegisterControls.userName.touched && RegisterControls.userName.errors">
+                                                <small class="invalid-feedback" *ngIf="RegisterControls.userName.errors.required">
+                                                  Username Is Required
+                                                </small>                    
+                                              </div>
                                         </div>
 
                                         <div class="mb-4">
                                             <label class="form-label">Password</label>
-                                            <div class="input-group bg-soft-light mb-3 rounded-3">
+                                            <div class="input-group bg-soft-light rounded-3">
                                                 <span class="input-group-text border-light text-muted" id="basic-addon7">
                                                     <i class="ri-lock-2-line"></i>
                                                 </span>
-                                                <input  formControlName="password"   type="password" class="form-control form-control-lg bg-soft-light border-light" placeholder="Enter Password" aria-label="Enter Password" aria-describedby="basic-addon7">
+                                                <input
+                                                 formControlName="password" 
+                                                 [ngClass]="{ 'is-invalid': isRegistered && RegisterControls.password.errors || RegisterControls.password.touched && RegisterControls.password.errors}"
+                                                 type="password"
+                                                 class="form-control bg-soft-light border-light"
+                                                 placeholder="Enter Password" 
+                                                 aria-label="Enter Password"
+                                                 aria-describedby="basic-addon7">
                                                 
+                                            </div>
+                                            <div *ngIf="isRegistered && RegisterControls.password.errors || RegisterControls.password.touched && RegisterControls.password.errors">
+                                                <small class="invalid-feedback" *ngIf="RegisterControls.password.errors.required">
+                                                  Password Is Required
+                                                </small> 
+
+                                                <small class="invalid-feedback" *ngIf="RegisterControls.password.errors.passwordStrength">
+                                                    Password must contain : numbers, lowercase letters, uppercase letters, and special characters.
+                                                  </small>                          
                                             </div>
                                         </div>
 
