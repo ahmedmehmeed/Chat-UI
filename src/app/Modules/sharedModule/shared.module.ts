@@ -17,11 +17,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     CommonModule,
     RouterModule,
     ToastrModule.forRoot({positionClass:'toast-bottom-right'}),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
   ],
   exports:[
     TabsModule,
-    ToastrModule
+    ToastrModule,
   ]
 })
 export class SharedModule { }

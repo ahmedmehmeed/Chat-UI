@@ -66,11 +66,12 @@ isSubmittedlogin:boolean=false;
 
   
   login(){
-    console.log("this.LoginForm.value",this.LoginForm.value)
+    this.isSubmittedlogin=true;
    this.authService.login(this.LoginForm.value).subscribe(
     (res)=>{
       this.isloggedIn=true;
       console.log(res)
+      this.isSubmittedlogin=false;
     },
     (err)=>{}
    )

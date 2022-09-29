@@ -9,6 +9,7 @@ import { SharedModule } from './Modules/sharedModule/shared.module';
 import { AuthenticationModule } from './Modules/authentication/authentication.module';
 import { ErrorInterceptor } from '../Shared/Helpers/interceptors/error.interceptor';
 import { JwtInterceptor } from '../Shared/Helpers/interceptors/jwt.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,8 @@ import { JwtInterceptor } from '../Shared/Helpers/interceptors/jwt.interceptor';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    NgbModule,
+    AuthenticationModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

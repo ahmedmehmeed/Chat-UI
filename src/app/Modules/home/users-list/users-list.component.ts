@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../../Shared/Services/User/users.service';
 import { User } from '../../../../Shared/Models/Users/user';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-users-list',
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor(private userService :UsersService ,     private toastr:ToastrService) { }
+  constructor(private userService :UsersService,private toastr:ToastrService,private spinner: NgxSpinnerService ) { }
   /*   State */
     Users:User[];
 
@@ -19,6 +20,7 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.spinner.show();
   }
 
 

@@ -40,7 +40,7 @@
                                         <div id="personalinfo" class="accordion-collapse collapse show" aria-labelledby="personalinfo1" data-bs-parent="#settingprofile">
                                             <div class="accordion-body">
                                                 <div class="float-end">
-                                                    <button type="button" class="btn btn-light btn-sm"><i class="ri-edit-fill me-1 ms-0 align-middle"></i> Edit</button>
+                                                    <button type="button" class="btn btn-light btn-sm" (click)="openUpdatePersonalData()"><i class="fa fa-pencil-square-o fa-1x btn-icon" aria-hidden="true"></i></button>
                                                 </div>
 
                                                 <div>
@@ -1011,8 +1011,144 @@
                 </div>
                 <!-- end modal -->
         </div>
- </div>
+</div>
 
+<button type="button" class="btn btn-primary" >Create template modal</button>
+ <!--  Update personal info modal -->
+<ng-template #personalInfo  let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="clearData()">
+      <span aria-hidden="true" class="visually-hidden" >&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="userForm" novalidate>
+        <div class="mb-3">
+            <label class="form-label">firstName </label>
+            <div class="input-group bg-soft-light rounded-3">
+                <span class="input-group-text text-muted" id="basic-addon5">
+                    <i class="ri-shield-user-fill"></i>
+                </span>
+                <input 
+                  formControlName="firstName" 
+                  class="form-control bg-soft-light border-light" 
+                  placeholder="Enter firstName" 
+                  aria-label="Enter firstName" 
+                  aria-describedby="basic-addon5"
+                  [ngClass]="{ 'is-invalid': isUserUpdated && getUpdateUserFormControls.firstName.errors || getUpdateUserFormControls.firstName.touched && getUpdateUserFormControls.firstName.errors}"
+                  >
+    
+            </div>
+            <div *ngIf="isUserUpdated && getUpdateUserFormControls.firstName.errors || getUpdateUserFormControls.firstName.touched && getUpdateUserFormControls.firstName.errors">
+                <div class="invalid-feedback" *ngIf="getUpdateUserFormControls.firstName.errors.required">
+                  firstName Is Required
+                </div>                
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">City </label>
+            <div class="input-group bg-soft-light rounded-3">
+                <span class="input-group-text text-muted" id="basic-addon5">
+                    <i class="ri-shield-user-fill"></i>
+                </span>
+                <input 
+                  formControlName="city" 
+                  class="form-control bg-soft-light border-light" 
+                  placeholder="Enter city" 
+                  aria-label="Enter city" 
+                  aria-describedby="basic-addon5"
+                  [ngClass]="{ 'is-invalid': isUserUpdated && getUpdateUserFormControls.city.errors || getUpdateUserFormControls.city.touched && getUpdateUserFormControls.city.errors}"
+                  >
+    
+            </div>
+            <div *ngIf="isUserUpdated && getUpdateUserFormControls.city.errors || getUpdateUserFormControls.city.touched && getUpdateUserFormControls.city.errors">
+                <div class="invalid-feedback" *ngIf="getUpdateUserFormControls.city.errors.required">
+                    city Is Required
+                </div>                
+              </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Lastname </label>
+            <div class="input-group bg-soft-light rounded-3">
+                <span class="input-group-text text-muted" id="basic-addon5">
+                    <i class="ri-shield-user-fill"></i>
+                </span>
+                <input 
+                formControlName="lastName"  
+                class="form-control bg-soft-light border-light"
+                  placeholder="Enter LastName" 
+                  aria-label="Enter LastName" aria-describedby="basic-addon5"
+                  [ngClass]="{ 'is-invalid': isUserUpdated && getUpdateUserFormControls.lastName.errors || getUpdateUserFormControls.lastName.touched && getUpdateUserFormControls.lastName.errors}"
+                  >                                   
+            </div>
+            <div *ngIf="isUserUpdated && getUpdateUserFormControls.lastName.errors || getUpdateUserFormControls.lastName.touched && getUpdateUserFormControls.lastName.errors">
+                <div class="invalid-feedback" *ngIf="getUpdateUserFormControls.lastName.errors.required">
+                  Lastname Is Required
+                </div>                
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <div class="input-group bg-soft-light rounded-3">
+                <span class="input-group-text text-muted" id="basic-addon5">
+                    <i class="ri-mail-line"></i>
+                </span>
+                <input 
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': isUserUpdated && getUpdateUserFormControls.email.errors || getUpdateUserFormControls.email.touched && getUpdateUserFormControls.email.errors}"
+                 type="email"
+                  class="form-control  bg-soft-light border-light"
+                   placeholder="Enter Email" aria-label="Enter Email"
+                    aria-describedby="basic-addon5">
+                
+            </div>
+            <div *ngIf="isUserUpdated && getUpdateUserFormControls.email.errors || getUpdateUserFormControls.email.touched && getUpdateUserFormControls.email.errors">
+                <small class="invalid-feedback" *ngIf="getUpdateUserFormControls.email.errors.required">
+                  Email Is Required
+                </small>
+                <div class="invalid-feedback" *ngIf="getUpdateUserFormControls.email.errors.email">
+                  Email Is Invalid
+                </div>                     
+              </div>
+        </div>
+
+<!--         <div class="mb-3">
+            <label class="form-label">Username</label>
+            <div class="input-group bg-soft-light rounded-3">
+                <span class="input-group-text border-light text-muted" id="basic-addon6">
+                    <i class="ri-user-2-line"></i>
+                </span>
+                <input 
+                [ngClass]="{ 'is-invalid': isUserUpdated && getUpdateUserFormControls.userName.errors || getUpdateUserFormControls.userName.touched && getUpdateUserFormControls.userName.errors}"
+                formControlName="userName"
+                type="text" class="form-control  bg-soft-light border-light" 
+                placeholder="Enter Username" aria-label="Enter Username"
+                aria-describedby="basic-addon6">
+            </div>
+            <div *ngIf="isUserUpdated && getUpdateUserFormControls.userName.errors || getUpdateUserFormControls.userName.touched && getUpdateUserFormControls.userName.errors">
+                <small class="invalid-feedback" *ngIf="getUpdateUserFormControls.userName.errors.required">
+                  Username Is Required
+                </small>                    
+              </div>
+        </div>
+ -->
+
+
+
+        <div class="d-grid">
+            <button class="btn btn-primary waves-effect waves-light" (click)="updateUserDetails()">Sign up</button>
+        </div>
+
+        <div class="mt-4 text-center">
+            <p class="text-muted mb-0">By registering you agree to the Chat <a href="#" class="text-primary">Terms of Use</a></p>
+        </div>
+        
+    </form>
+  </div>
+</ng-template>
 
             
  

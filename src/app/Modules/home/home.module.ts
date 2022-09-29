@@ -8,6 +8,7 @@ import { SharedModule } from '../sharedModule/shared.module';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    NgxSpinnerModule,
   ]
 })
 export class HomeModule { }

@@ -23,12 +23,12 @@ export class UsersService {
   }
 
   UpdateUser(User:any){
-     this.http.get(this.apiUrl+ApiRoutes.user.userUpdate,User); 
+     this.http.put(this.apiUrl+ApiRoutes.user.userUpdate,User); 
   }
 
 
   DeleteUser(id:string){
-     this.http.get(this.apiUrl+ApiRoutes.user.userDelete+id);
+     this.http.delete(this.apiUrl+ApiRoutes.user.userDelete+id);
   }
 
 }
