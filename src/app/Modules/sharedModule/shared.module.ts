@@ -5,7 +5,8 @@ import { SidebarComponent } from '../../../Shared/Components/sidebar/sidebar.com
 import { LayoutComponent } from '../../../Shared/Components/layout/layout.component';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-
+import { AlertModule, AlertConfig } from 'ngx-bootstrap/alert';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -18,10 +19,14 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     RouterModule,
     ToastrModule.forRoot({positionClass:'toast-bottom-right'}),
     TabsModule.forRoot(),
+    AlertModule.forRoot(),
+    NgxSpinnerModule,
   ],
   exports:[
     TabsModule,
     ToastrModule,
+    AlertModule,
+    NgxSpinnerModule,
   ]
 })
 export class SharedModule { }

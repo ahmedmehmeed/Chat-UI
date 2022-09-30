@@ -11,7 +11,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor(private userService :UsersService,private toastr:ToastrService,private spinner: NgxSpinnerService ) { }
+  constructor(
+    private userService :UsersService,
+    private toastr:ToastrService,
+    private spinner: NgxSpinnerService ,
+    private SpinnerService: NgxSpinnerService
+    ) { }
   /*   State */
     Users:User[];
 
@@ -25,13 +30,18 @@ export class UsersListComponent implements OnInit {
 
 
   getUsers(){
+    this.SpinnerService.show();  
     this.userService.GetAllUsers().subscribe(
       (res)=>{
          this.Users=res
          console.log(this.Users)
       },
       (err)=> {}, 
-      ()=>this.isLoading=false
+      ()=>{
+        this.isLoading=false
+        this.SpinnerService.hide();  
+      }
+      
     )
   }
 }

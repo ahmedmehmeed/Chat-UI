@@ -10,6 +10,7 @@ import { AuthenticationModule } from './Modules/authentication/authentication.mo
 import { ErrorInterceptor } from '../Shared/Helpers/interceptors/error.interceptor';
 import { JwtInterceptor } from '../Shared/Helpers/interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     SharedModule,
     NgbModule,
-    AuthenticationModule
+    AuthenticationModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

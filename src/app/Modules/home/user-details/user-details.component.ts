@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { userDetails } from '../../../../Shared/Models/userDetails/userDetails';
 import { UsersService } from '../../../../Shared/Services/User/users.service';
 
@@ -19,13 +20,14 @@ isLoading:boolean=true;
 galleryOptions: NgxGalleryOptions[];
 galleryImages: NgxGalleryImage[];
 
-  constructor(private activeRoute:ActivatedRoute,private userService:UsersService) { }
+  constructor(private activeRoute:ActivatedRoute,private userService:UsersService,   private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getUserDetails();
   }
 
   getUserDetails(){
+    this.SpinnerService.show();  
    const userId=this.activeRoute.snapshot.paramMap.get('id')
     this.userService.GetUserById(userId).subscribe(
       (res)=>{
@@ -38,6 +40,7 @@ galleryImages: NgxGalleryImage[];
         this.galleryImages=this.initializeGalleryImages();
         console.log(this.galleryImages)
         this.isLoading=false;
+        this.SpinnerService.hide();  
        }
     )
  }
