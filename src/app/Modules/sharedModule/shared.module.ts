@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AlertModule, AlertConfig } from 'ngx-bootstrap/alert';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 @NgModule({
@@ -21,12 +22,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     TabsModule.forRoot(),
     AlertModule.forRoot(),
     NgxSpinnerModule,
+    NgxDropzoneModule,
   ],
   exports:[
     TabsModule,
     ToastrModule,
     AlertModule,
     NgxSpinnerModule,
+    NgxDropzoneModule
   ]
 })
 export class SharedModule { }

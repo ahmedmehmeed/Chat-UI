@@ -7,7 +7,9 @@ user:{
    users: 'Users/GetAllUsers',
    userDetails:'Users/GetUserById?Id=',
    userUpdate: 'Users/UpdateUser',
-   userDelete: 'Users/DeleteUser?Id='
+   userDelete: 'Users/DeleteUser?Id=',
+   userPhotoDelete: 'Users/Delete-photo?publicId=',
+   userPhotoUpdate: 'Users/Add-photo'
 }
 
 }

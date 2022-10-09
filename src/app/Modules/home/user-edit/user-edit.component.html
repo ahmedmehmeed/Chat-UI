@@ -9,13 +9,14 @@
       <div class="text-center border-bottom p-4">
         <div class="mb-4 profile-user">
           <img
-            [src]="user.photoURL"
+            [src]="(user.photoURL)?user.photoURL:defaultImage"
             class="rounded-circle avatar-lg img-thumbnail"
             alt=""
           />
           <button
             type="button"
             class="btn btn-light bg-light avatar-xs p-0 rounded-circle profile-photo-edit"
+            (click)="openUpdateprofilePhoto()"
           >
             <i class="ri-pencil-fill"></i>
           </button>
@@ -44,7 +45,10 @@
 
       <!-- Start User profile description -->
       <div class="p-4 user-profile-desc" data-simplebar>
+
+            
         <div id="settingprofile" class="accordion">
+           <!-- Start personal info card -->
           <div class="accordion-item card border mb-2">
             <div class="accordion-header" id="personalinfo1">
               <button
@@ -112,6 +116,7 @@
           </div>
           <!-- end personal info card -->
 
+             <!-- Start personal about card -->
           <div class="accordion-item card border mb-2">
             <div class="accordion-header" id="about1">
               <button
@@ -163,6 +168,7 @@
           </div>
           <!-- end personal about card -->
 
+         <!-- Start personal gallary card -->
           <div class="accordion-item card border mb-2">
             <div class="accordion-header" id="photo1">
               <button
@@ -190,13 +196,23 @@
                         <button
                         type="button"
                         class="btn btn-light btn-sm mb-1"
-                        (click)="openUpdateGalleryPhotos()"
-                      >
+                        title="Add new photo"
+                        (click)="openUpdateGalleryPhotos()">
                         <i
                           class="fa fa-pencil-square-o fa-1x btn-icon"
                           aria-hidden="true"
                         ></i>
-                      </button></div>
+                      </button>
+                      <button
+                      type="button"
+                      class="btn btn-light btn-sm mb-1 ms-2"
+                      (click)="openUserEditModal(DeletePhoto,'DeletePhoto')">
+                      <i
+                        class="fa fa-trash fa-1x btn-icon"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    </div>
                     
       
                 </div>
@@ -209,6 +225,7 @@
           </div>
           <!-- end personal gallary card -->
 
+         <!-- Start privacy card -->
           <div class="accordion-item card border mb-2">
             <div class="accordion-header" id="privacy1">
               <button
@@ -352,6 +369,7 @@
           </div>
           <!-- end privacy card -->
 
+          <!-- Start security card -->
           <div class="accordion-item card border mb-2">
             <div class="accordion-header" id="security1">
               <button
@@ -437,6 +455,7 @@
               </div>
             </div>
           </div>
+
         </div>
         <!-- end profile-setting-accordion -->
       </div>
@@ -1877,7 +1896,7 @@
     <button
       class="btn btn-primary waves-effect waves-light w-100"
       (click)="updateUserDetails()"
-      [disabled]="!userForm.dirty || userForm.invalid"
+    
     >
       Save Changes
       <span
@@ -2048,118 +2067,78 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="userForm" novalidate>
-      <div class="mb-3">
-        <label class="form-label">Introduction </label>
-        <div class="input-group bg-soft-light rounded-3">
-          <textarea
-            formControlName="introduction"
-            class="form-control bg-soft-light border-light"
-            placeholder="Enter Introduction"
-            aria-label="Enter Introduction"
-            aria-describedby="basic-addon5"
-            [ngClass]="{
-              'is-invalid':
-                (isUserUpdated &&
-                  getUpdateUserFormControls.introduction.errors) ||
-                (getUpdateUserFormControls.introduction.touched &&
-                  getUpdateUserFormControls.introduction.errors)
-            }"
-            style="min-height: 100px"
-          >
-          </textarea>
-        </div>
-        <div
-          *ngIf="
-            (isUserUpdated && getUpdateUserFormControls.introduction.errors) ||
-            (getUpdateUserFormControls.introduction.touched &&
-              getUpdateUserFormControls.introduction.errors)
-          "
-        >
-          <small
-            class="invalid-feedback"
-            *ngIf="getUpdateUserFormControls.introduction.errors.required"
-          >
-            Introduction Is Required
-          </small>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Looking For </label>
-        <div class="input-group bg-soft-light rounded-3">
-          <textarea
-            formControlName="lookingFor"
-            class="form-control bg-soft-light border-light"
-            placeholder="Enter Introduction"
-            aria-label="Enter Introduction"
-            aria-describedby="basic-addon5"
-            [ngClass]="{
-              'is-invalid':
-                (isUserUpdated &&
-                  getUpdateUserFormControls.lookingFor.errors) ||
-                (getUpdateUserFormControls.lookingFor.touched &&
-                  getUpdateUserFormControls.lookingFor.errors)
-            }"
-            style="min-height: 100px"
-          >
-          </textarea>
-        </div>
-        <div
-          *ngIf="
-            (isUserUpdated && getUpdateUserFormControls.lookingFor.errors) ||
-            (getUpdateUserFormControls.lookingFor.touched &&
-              getUpdateUserFormControls.lookingFor.errors)
-          "
-        >
-          <small
-            class="invalid-feedback"
-            *ngIf="getUpdateUserFormControls.lookingFor.errors.required"
-          >
-            LookingFor Is Required
-          </small>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Interests </label>
-        <div class="input-group bg-soft-light rounded-3">
-          <textarea
-            formControlName="interests"
-            class="form-control bg-soft-light border-light"
-            placeholder="Enter Introduction"
-            aria-label="Enter Introduction"
-            aria-describedby="basic-addon5"
-            [ngClass]="{
-              'is-invalid':
-                (isUserUpdated && getUpdateUserFormControls.interests.errors) ||
-                (getUpdateUserFormControls.interests.touched &&
-                  getUpdateUserFormControls.interests.errors)
-            }"
-            style="min-height: 100px"
-          >
-          </textarea>
-        </div>
-        <div
-          *ngIf="
-            (isUserUpdated && getUpdateUserFormControls.interests.errors) ||
-            (getUpdateUserFormControls.interests.touched &&
-              getUpdateUserFormControls.interests.errors)
-          "
-        >
-          <small
-            class="invalid-feedback"
-            *ngIf="getUpdateUserFormControls.interests.errors.required"
-          >
-            Interests Is Required
-          </small>
-        </div>
-      </div>
-    </form>
+    <ngx-dropzone (change)="onSelect($event)">
+      <ngx-dropzone-label>Drop it</ngx-dropzone-label>
+      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-preview>
+  </ngx-dropzone>
+  <div class="row"> 
+    <div class="col-4" *ngFor="let f of files" >
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [file]="f" class="image-preview">
+
+    </ngx-dropzone-image-preview>
+    <ngx-dropzone-label class="image-label">{{ f.name }}</ngx-dropzone-label> 
+    </div>
+  </div>
+
+
   </div>
   <div class="modal-footer">
     <button
-    [disabled]="!userForm.dirty || userForm.invalid"
       class="btn btn-primary waves-effect waves-light w-100"
-      (click)="updateUserDetails()"
+      (click)="updateUserPhotos()"
+      [disabled]="!files.length"
+    >
+      Save Changes
+      <span
+        *ngIf="isUserUpdated"
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+    </button>
+    
+  </div>
+</ng-template>
+
+
+<!--  Update  Profile photo  modal -->
+<ng-template #profilePhoto let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Update Profile Photo</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="clearData()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngx-dropzone (change)="onSelect($event)">
+      <ngx-dropzone-label>Drop it</ngx-dropzone-label>
+      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-preview>
+  </ngx-dropzone>
+  <div class="row"> 
+    <div class="col-4" *ngFor="let f of files" >
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [file]="f" class="image-preview">
+
+    </ngx-dropzone-image-preview>
+    <ngx-dropzone-label class="image-label">{{ f.name }}</ngx-dropzone-label> 
+    </div>
+  </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <button
+      class="btn btn-primary waves-effect waves-light w-100"
+      (click)="updateUserPhotoProfile()"
+      [disabled]="!files.length"
     >
       Save Changes
       <span
@@ -2171,6 +2150,31 @@
     </button>
   </div>
 </ng-template>
+<ng-template #DeletePhoto let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Delete Profile Photos</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="clearData()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-4 m-2 position-relative " *ngFor="let photo of photos">
+      <img  alt="" class="rounded-circle avatar-lg " [src]="photo.url">
+      <button (click)="deleteUserPhotos(photo.publicId)" type="button" class="btn btn-light bg-danger avatar-xs p-0 rounded-circle profile-photo-edit position-absolute" style="left: 80px;bottom: 3px;">
+        <i class="fa fa-trash fa-1x btn-icon"></i>
+      </button>
+    </div>
+
+  </div>
+</div>
+</ng-template>
+
 
 <ngx-spinner
 bdColor="rgba(51,51,51,0.8)"
@@ -2180,3 +2184,4 @@ type="ball-scale-multiple"
 >
 <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
+

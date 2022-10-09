@@ -31,7 +31,7 @@ const routes: Routes = [
         component: UserEditComponent,
         pathMatch: "full",
         canActivate: [AuthGuard],
-        canDeactivate:[UnsavedChangesGuard]
+        /* canDeactivate:[UnsavedChangesGuard] */
       }
 
     ]

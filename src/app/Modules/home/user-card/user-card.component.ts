@@ -9,6 +9,7 @@ import { User } from '../../../../Shared/Models/Users/user';
 })
 export class UserCardComponent implements OnInit {
 @Input() user:User
+defaultImage="../../../../assets/images/defaultimg.jpg"
   constructor(private Router:Router) { }
 
   ngOnInit(): void {

@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
 /* state */
 userProfile:User;
 userId:string;
-
+defaultImage="../../../../assets/images/defaultimg.jpg"
   constructor(  private authService:AuthService,private userService:UsersService,private router :Router) { }
 
   ngOnInit(): void {

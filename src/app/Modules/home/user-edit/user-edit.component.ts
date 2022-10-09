@@ -10,6 +10,7 @@ import { User } from '../../../../Shared/Models/Users/user';
 import { UsersService } from '../../../../Shared/Services/User/users.service';
 import Swal from 'sweetalert2'
 import { NgxSpinnerService } from 'ngx-spinner';
+import { PhotoDto } from '../../../../Shared/Models/userDetails/PhotoDto';
 
 @Component({
   selector: 'app-user-edit',
@@ -20,12 +21,17 @@ export class UserEditComponent implements OnInit {
   
 /* State */
 user:userDetails;
+photos?: PhotoDto[];
 @ViewChild("personalInfo") personalInfo;
 @ViewChild("AboutData") AboutData;
 @ViewChild("GalleryPhotos") GalleryPhotos;
+@ViewChild("profilePhoto") profilePhoto;
 userForm:FormGroup;
 galleryOptions: NgxGalleryOptions[];
 galleryImages: NgxGalleryImage[];
+files: File[] = [];
+userUpdatephotoRes:any;
+defaultImage="../../../../assets/images/defaultimg.jpg"
 
 /* uiState */
 isLoading:boolean=true;
@@ -35,7 +41,7 @@ dismissible: boolean = true;
 timeout: number = 100000000000;
 
 
-@HostListener('window:beforeunload') unloadNotification(){
+/* @HostListener('window:beforeunload') unloadNotification(){
   if (this.userForm.dirty) {
     Swal.fire({
       title: 'Are you sure want to move?',
@@ -54,7 +60,7 @@ timeout: number = 100000000000;
     });
     
   } 
-}
+} */
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -76,11 +82,15 @@ getUserDetails(){
  const id = this.activatedRoute.snapshot.paramMap.get("id");
  this.SpinnerService.show();  
   this.userService.GetUserById(id).subscribe(
-    (res:any)=>{ this.user=res;},
+    (res:any)=>{ 
+      this.user=res;
+      this.photos=this.user.photoDto.filter(a=>a.isMain!=true)
+    },
     ()=>{},
     ()=>{ 
       this.handleGalleryOptions();
       this.galleryImages=this.initializeGalleryImages();
+      /* this.initializedropzoneImages(); */
       console.log(this.galleryImages)
       this.isLoading=false;
       this.SpinnerService.hide();  
@@ -102,7 +112,7 @@ this.userForm=this.builder.group({
   interests: ["",[Validators.required]],
   city: ["",[Validators.required]],
   country: ["",[Validators.required]],
-  photoDto: ["",[Validators.required]],
+  /* photoDto: ["",[Validators.required]], */
 })
 }
 
@@ -124,7 +134,7 @@ setUserFormData(){
     interests:this.user.interests,
     city:this.user.city,
     country:this.user.country,
-    photoDto:this.user.photoDto,
+/*     photoDto:this.user.photoDto, */
   })
 }
 
@@ -141,12 +151,17 @@ openUpdateAboutData(){
 }
 
 openUpdateGalleryPhotos(){
+ 
   this.setUserFormData();
-  this.openVerticallyCenteredmd(this.GalleryPhotos);
+  this.openVerticallyCenteredLg(this.GalleryPhotos);
+}
+
+openUpdateprofilePhoto(){
+  this.setUserFormData();
+  this.openVerticallyCenteredmd(this.profilePhoto);
 }
 
 updateUserDetails(){
-
  this.isUserUpdated=true;
   console.log("userupdate form", this.userForm.value)
    this.userService.UpdateUser(this.userForm.value).subscribe(
@@ -159,6 +174,79 @@ updateUserDetails(){
     ()=>{ this.isUserUpdated=false;}
   );
 }
+
+openUserEditModal(modal:any,type:string){
+ switch(type)
+ {
+  case'DeletePhoto':
+  this.openVerticallyCenteredLg(modal);
+
+
+ }
+
+}
+
+updateUserPhotos(){
+  this.isUserUpdated=true;
+  let data={
+    userId:this.user.id,
+    isMain:false
+  }
+  const formData= new FormData();
+/*   formData.append("userId", this.user.id); */
+formData.append("photo", this.files[0]);
+formData.append("userId",this.user.id);
+formData.append("isMain",JSON.stringify(false));
+ this.userService.UpdateUserPhoto(formData).subscribe(
+  (res)=>{
+    this.userUpdatephotoRes=res;
+  },
+  ()=>{},
+  ()=>{
+     this.isUserUpdated=false;
+      this.clearData()
+    }
+ )
+}
+
+updateUserPhotoProfile(){
+  this.isUserUpdated=true;
+  let data={
+    userId:this.user.id,
+    isMain:true
+  }
+  const formData= new FormData();
+/*   formData.append("userId", this.user.id); */
+formData.append("photo", this.files[0]);
+formData.append("userId",this.user.id);
+formData.append("isMain",JSON.stringify(true));
+ this.userService.UpdateUserPhoto(formData).subscribe(
+  (res)=>{
+    this.userUpdatephotoRes=res;
+  },
+  ()=>{},
+  ()=>{
+     this.isUserUpdated=false;
+      this.clearData()
+    }
+ )
+}
+
+deleteUserPhotos(publicId:string){
+  this.isUserUpdated=true;
+ this.userService.DeleteUserPhoto(publicId).subscribe(
+  (res)=>{
+    this.userUpdatephotoRes=res;
+    this.photos=this.photos.filter(p=>p.publicId!=publicId)
+  },
+  ()=>{},
+  ()=>{
+     this.isUserUpdated=false;
+      this.clearData()
+    }
+ )
+}
+
 
 openVerticallyCenteredmd(content){
   this.modalService.open(content, {
@@ -196,7 +284,7 @@ handleGalleryOptions(){
 
  initializeGalleryImages():NgxGalleryImage[]{
   const images=[];
-  this.user.photoDto?.forEach(p => {
+  this.photos?.forEach(p => {
     images.push(
        {
          small:p.url,
@@ -205,38 +293,38 @@ handleGalleryOptions(){
        }
      )
    });
-   //test
-   images.push(
 
-    {
-      small:"https://media.istockphoto.com/photos/young-handsome-man-with-beard-wearing-casual-sweater-and-glasses-over-picture-id1212960962?k=20&m=1212960962&s=612x612&w=0&h=o2PGY4yhn51XSnYi60dMCQqvXQ0d-odkaKUVocbYYLk=",
-      medium:"https://media.istockphoto.com/photos/young-handsome-man-with-beard-wearing-casual-sweater-and-glasses-over-picture-id1212960962?k=20&m=1212960962&s=612x612&w=0&h=o2PGY4yhn51XSnYi60dMCQqvXQ0d-odkaKUVocbYYLk=",
-      big:"https://media.istockphoto.com/photos/young-handsome-man-with-beard-wearing-casual-sweater-and-glasses-over-picture-id1212960962?k=20&m=1212960962&s=612x612&w=0&h=o2PGY4yhn51XSnYi60dMCQqvXQ0d-odkaKUVocbYYLk=",
-    },
-    {
-      small:".../../../../assets/images/small/img-1.jpg",
-      medium:".../../../../assets/images/small/img-1.jpg",
-      big:".../../../../assets/images/small/img-1.jpg",
-    },
-    {
-      small:".../../../../assets/images/small/img-1.jpg",
-      medium:".../../../../assets/images/small/img-1.jpg",
-      big:".../../../../assets/images/small/img-1.jpg",
-    },
-    {
-      small:".../../../../assets/images/small/img-1.jpg",
-      medium:".../../../../assets/images/small/img-1.jpg",
-      big:".../../../../assets/images/small/img-1.jpg",
-    },
-    {
-      small:".../../../../assets/images/small/img-1.jpg",
-      medium:".../../../../assets/images/small/img-1.jpg",
-      big:".../../../../assets/images/small/img-1.jpg",
-    }
-   )
    return images;
  }
 
+/*  initializedropzoneImages(){
+const files : File[]=[]
+this.user.photoDto?.forEach(p => {
+  files.push(
+     {
+       name:p.url,
+       size:0,
+       lastModified: 0,
+       webkitRelativePath:" ",
+       type:" ",
+       arrayBuffer: undefined,
+       slice:undefined,
+       stream:undefined,
+       text:undefined
+     }
+   )
+ });
+ this.files =files;
+ } */
+ onSelect(event) {
+   console.log(event);
+   this.files.push(...event.addedFiles);
+ }
+ 
+ onRemove(event) {
+   console.log(event);
+   this.files.splice(this.files.indexOf(event), 1);
+ }
  
 clearData() {
   this.userForm.reset();

@@ -17,7 +17,7 @@ import { PhotoDto } from "./PhotoDto";
         interests: string;
         city: string;
         country: string;
-        photoDto: PhotoDto[];
+        photoDto?: PhotoDto[];
         refreshTokens: any[];
     }
 

@@ -31,3 +31,14 @@
 .btn-icon{
     font-size: 18px;
 }
+
+.image-preview{
+overflow: hidden;
+}
+
+.image-label{
+   font-size: smaller;
+   text-overflow: ellipsis; 
+   overflow:hidden;              
+   white-space:nowrap; 
+    }

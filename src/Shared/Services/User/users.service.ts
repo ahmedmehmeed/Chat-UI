@@ -18,7 +18,7 @@ export class UsersService {
   Users : User[]=[];
   constructor(private http:HttpClient) { }
 
-  GetAllUsers(){ 
+/*   GetAllUsers(){ 
     //of make users return as obseervable
     if(this.Users.length>0) return of(this.Users)
     return this.http.get<User[]>(this.apiUrl+ApiRoutes.user.users).pipe(
@@ -27,6 +27,10 @@ export class UsersService {
       return res;
       })
     );
+  } */
+
+  GetAllUsers(){ 
+    return this.http.get<User[]>(this.apiUrl+ApiRoutes.user.users)
   }
 
   GetUserById(id:string){
@@ -36,6 +40,14 @@ export class UsersService {
   UpdateUser(User:any){
     return this.http.post<userDetails>(this.apiUrl+ApiRoutes.user.userUpdate,User)
   }
+
+  UpdateUserPhoto(UserPhoto:any){
+    return this.http.post<any>(this.apiUrl+ApiRoutes.user.userPhotoUpdate,UserPhoto)
+  }
+
+  DeleteUserPhoto(publicId:string):Observable<number>{
+   return this.http.delete<number>(this.apiUrl+ApiRoutes.user.userPhotoDelete+publicId);
+ }
 
 
   DeleteUser(id:string){

@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
    this.initRegisterForm();
+   this.maxDate=new Date();
+   this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
   }
 
 
@@ -25,6 +27,7 @@ export class RegisterComponent implements OnInit {
   /* UI State */
     RegisterForm: FormGroup ;
     isRegistered:boolean=false;
+    maxDate:Date;
 
 
 /*     State */
@@ -34,6 +37,9 @@ export class RegisterComponent implements OnInit {
       firstName:['',[Validators.required]],
       lastName:['',[Validators.required]],
       userName:['',[Validators.required]],
+      knownAs:['',[Validators.required]],
+      birthDate:['',[Validators.required]],
+      gender:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
       password:['',Validators.compose([
         Validators.required, Validators.minLength(8), PasswordStrengthValidator])]
@@ -48,11 +54,13 @@ export class RegisterComponent implements OnInit {
    register(){
     this.isRegistered=true
     console.log("this.RegisterForm.value",this.RegisterForm.value)
-    this.authService.register(this.RegisterForm.value).subscribe(
+   this.authService.register(this.RegisterForm.value).subscribe(
      (res)=>{
        console.log(res)
        this.isRegistered=false;
-     }
+     },
+     ()=>{ this.isRegistered=false;},
+     ()=>{ this.isRegistered=false;}
     )
    }
 }
