@@ -1668,8 +1668,18 @@
                  </div>
             </div>
             <div class="row ">
-                <pagination [boundaryLinks]="true" [totalItems]="77"
-                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+                <pagination 
+                [(ngModel)]="userFilter.pageNumber"
+                (pageChanged)="pagedChanged()"
+                [boundaryLinks]="true" 
+                [totalItems]="usersPagination.totalItems"
+                [itemsPerPage]="usersPagination.itemsPerPage"
+                previousText="&lsaquo;" 
+                nextText="&rsaquo;" 
+                firstText="&laquo;"
+                 lastText="&raquo;"
+
+                 >
         
              </pagination>
             </div>

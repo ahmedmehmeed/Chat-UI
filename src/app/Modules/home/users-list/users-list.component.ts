@@ -23,7 +23,7 @@ export class UsersListComponent implements OnInit {
     Users:User[];
     userFilter:userFilter={
       pageNumber:1,
-      pageSize:10
+      pageSize:5
     };
 
     usersPagination:Pagination;
@@ -54,5 +54,8 @@ export class UsersListComponent implements OnInit {
       }
       
     )
+  }
+  pagedChanged(){
+    this.getUsers();
   }
 }
