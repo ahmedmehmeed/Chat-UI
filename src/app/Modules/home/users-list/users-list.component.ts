@@ -3,6 +3,8 @@ import { UsersService } from '../../../../Shared/Services/User/users.service';
 import { User } from '../../../../Shared/Models/Users/user';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { userFilter } from '../../../../Shared/Models/Users/userFilter';
+import { Pagination } from '../../../../Shared/Models/pagination';
 
 @Component({
   selector: 'app-users-list',
@@ -19,6 +21,12 @@ export class UsersListComponent implements OnInit {
     ) { }
   /*   State */
     Users:User[];
+    userFilter:userFilter={
+      pageNumber:1,
+      pageSize:10
+    };
+
+    usersPagination:Pagination;
 
    /*  UI */
    isLoading:boolean=true;
@@ -31,10 +39,13 @@ export class UsersListComponent implements OnInit {
 
   getUsers(){
     this.SpinnerService.show();  
-    this.userService.GetAllUsers().subscribe(
+    this.userService.GetAllUsers(this.userFilter).subscribe(
       (res)=>{
-         this.Users=res
+         this.Users=res.body
+          this.usersPagination=JSON.parse( res.headers.get("pagination")); 
          console.log(this.Users)
+         console.log(this.usersPagination)
+
       },
       (err)=> {}, 
       ()=>{

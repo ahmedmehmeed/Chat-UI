@@ -15,6 +15,15 @@
     transition: all .4s;
 }
 
+.page-link{
+    color: blueviolet;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: blueviolet !important;
+    border-color: blueviolet !important;
+}
 
 /* Media */
 

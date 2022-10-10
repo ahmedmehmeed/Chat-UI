@@ -9,6 +9,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     NgxGalleryModule,
     NgxSpinnerModule,
+    PaginationModule.forRoot()
   ]
 })
 export class HomeModule { }

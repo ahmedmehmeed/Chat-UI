@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ApiRoutes } from '../../Helpers/app/apiRoutes';
 import { User } from '../../Models/Users/user';
+import { userFilter } from '../../Models/Users/userFilter';
 import { userDetails } from '../../Models/userDetails/userDetails';
 import { delay, map, tap } from 'rxjs/operators';
 
@@ -29,8 +30,8 @@ export class UsersService {
     );
   } */
 
-  GetAllUsers(){ 
-    return this.http.get<User[]>(this.apiUrl+ApiRoutes.user.users)
+  GetAllUsers(Filter:userFilter){ 
+    return this.http.post<User[]>(this.apiUrl+ApiRoutes.user.users,Filter,{observe:'response'})
   }
 
   GetUserById(id:string){
