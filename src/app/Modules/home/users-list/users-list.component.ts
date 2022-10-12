@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { userFilter } from '../../../../Shared/Models/Users/userFilter';
 import { Pagination } from '../../../../Shared/Models/pagination';
+import { LocalStorageKeys } from '../../../../Shared/Helpers/app/LocalStorageKeys';
 
 @Component({
   selector: 'app-users-list',
@@ -23,7 +24,7 @@ export class UsersListComponent implements OnInit {
     Users:User[];
     userFilter:userFilter={
       pageNumber:1,
-      pageSize:5
+      pageSize:50,
     };
 
     usersPagination:Pagination;
@@ -34,14 +35,17 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     this.spinner.show();
+   
   }
 
 
   getUsers(){
-    this.SpinnerService.show();  
+    if(this.userFilter.pageSize<0)this.userFilter.pageSize=50;
+    const userId = localStorage.getItem(LocalStorageKeys.UserId)
+    this.SpinnerService.show(); 
     this.userService.GetAllUsers(this.userFilter).subscribe(
       (res)=>{
-         this.Users=res.body
+         this.Users=res.body.filter(u=>u.id!=userId)
           this.usersPagination=JSON.parse( res.headers.get("pagination")); 
          console.log(this.Users)
          console.log(this.usersPagination)
@@ -55,6 +59,7 @@ export class UsersListComponent implements OnInit {
       
     )
   }
+
   pagedChanged(){
     this.getUsers();
   }

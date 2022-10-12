@@ -8,7 +8,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AlertModule, AlertConfig } from 'ngx-bootstrap/alert';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,19 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AlertModule.forRoot(),
     NgxSpinnerModule,
     NgxDropzoneModule,
+    NgSelectModule,
+    TimeagoModule.forRoot()
+
   ],
   exports:[
     TabsModule,
     ToastrModule,
     AlertModule,
     NgxSpinnerModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    NgSelectModule,
+    TimeagoModule
+
   ]
 })
 export class SharedModule { }

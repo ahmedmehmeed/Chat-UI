@@ -1,7 +1,7 @@
 <div class="card mb-4">
  <div class="card-img-wrapper">
-    <img *ngIf="user.photos.length>0" src="{{user.photos[0].url}}" alt="{{user.knownAs}} " class="card-img-top"> 
-    <img *ngIf="user.photos.length===0" src="{{defaultImage}}" alt="{{user.knownAs}} " class="card-img-top" > 
+    <img *ngIf="MainImage.length>0" src="{{MainImage[0].url}}" alt="{{user.knownAs}} " class="card-img-top"> 
+    <img *ngIf="MainImage.length===0" src="{{defaultImage}}" alt="{{user.knownAs}} " class="card-img-top" > 
 <ul class="list-inline member-icons animate text-center user-icon">
     <li class="list-inline-item p-1" >
         <button class="btn btn-primary" (click)="showUserDetails(user)">

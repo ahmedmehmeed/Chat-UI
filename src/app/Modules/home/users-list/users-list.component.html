@@ -1,10 +1,6 @@
 
  
-<!--   <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium" bdColor="rgba(32, 55, 77, 0.85)">
-    <p class="loading" ><Strong>Please wait ...</Strong></p>
-  </ngx-spinner>
- -->
-   <div class="d-flex" *ngIf="!isLoading">
+ <div class="d-flex" *ngIf="!isLoading">
     <div class="chat-leftsidebar me-lg-1 ms-lg-0">
 
         <div class="tab-content">
@@ -1661,12 +1657,98 @@
 
     </div>
      <div class="User-cards w-100 overflow-hidden px-3">
-        <div>
+        <div class="row">
+            <div id="settingprofile" class="accordion">
+                <!-- Start personal info card -->
+               <div class="accordion-item card border my-2">
+                 <div class="accordion-header" id="personalinfo1">
+                   <button
+                     class="accordion-button"
+                     type="button"
+                     data-bs-toggle="collapse"
+                     data-bs-target="#personalinfo"
+                     aria-expanded="false"
+                     aria-controls="personalinfo"
+                   >
+                     <h5 class="font-size-14 m-0">Advanced Search</h5>
+                   </button>
+                 </div>
+                 <div
+                   id="personalinfo"
+                   class="accordion-collapse collapse show"
+                   aria-labelledby="personalinfo1"
+                   data-bs-parent="#settingprofile"
+                 >
+                   <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                        <p class="text-muted mb-1">Gender</p>
+                        <ng-select 
+                            (change)="pagedChanged()"
+                            [(ngModel)]="userFilter.gender" 
+                            class="w-100" 
+                            bindLabel="name"
+                            bindValue="id"
+                            placeholder="Select user gender"
+                            >
+                            <ng-option value="male">Male</ng-option>
+                            <ng-option value="female">Female</ng-option>
+                         </ng-select>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <p class="text-muted mb-1">Age Range</p>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <p class="text-muted mb-1">Newest Members</p>
+                             <label class="switch">
+                                <input type="checkbox" [(ngModel)]="userFilter.createDate" (change)="pagedChanged()">
+                                <span class="slider round"></span>
+                              </label>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <p class="text-muted mb-1">Last Active</p>
+                             <label class="switch">
+                                <input type="checkbox" [(ngModel)]="userFilter.lastActive" (change)="pagedChanged()">
+                                <span class="slider round"></span>
+                              </label>
+                        </div>
+
+                    </div>                    
+                   </div>
+                </div>
+               </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-lg-2">
+                <ng-select 
+                (change)="pagedChanged()" 
+                [(ngModel)]="userFilter.pageSize"
+                class="w-100" 
+                bindLabel="name"
+                bindValue="id"
+                placeholder="Select user gender"
+                >
+                <ng-option [value]=5>5</ng-option>
+                <ng-option [value]=10>10</ng-option>
+                <ng-option [value]=20>20</ng-option>
+                <ng-option [value]=30>30</ng-option>
+                <ng-option [value]=40>40</ng-option>
+                <ng-option [value]=50>50</ng-option>
+                <ng-option [value]=100>100</ng-option>
+                <ng-option [value]="usersPagination.totalItems">all</ng-option>
+             </ng-select>
+                </div>
+        
+
+            </div>
+
             <div class="row card-p-3 w-100">   
                 <div class="col-4 col-md-3 col-lg-2" *ngFor="let user of Users">
                     <app-user-card [user]="user"></app-user-card>
                  </div>
             </div>
+
             <div class="row ">
                 <pagination 
                 [(ngModel)]="userFilter.pageNumber"
@@ -1678,12 +1760,10 @@
                 nextText="&rsaquo;" 
                 firstText="&laquo;"
                  lastText="&raquo;"
-
                  >
         
              </pagination>
             </div>
-        </div>
     </div>
 
 </div>

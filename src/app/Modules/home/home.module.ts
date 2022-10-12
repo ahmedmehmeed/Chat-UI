@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     ReactiveFormsModule,
     NgxGalleryModule,
     NgxSpinnerModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    NgSelectModule
   ]
 })
 export class HomeModule { }
