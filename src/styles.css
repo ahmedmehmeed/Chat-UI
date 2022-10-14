@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* *** Validation span ** */
-@import "~@ng-select/ng-select/themes/default.theme.css";
 
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+/* *** Validation span ** */
 .invalid-feedback {
     display: block;
 }
@@ -16,3 +18,5 @@ border-color: #dc3545 !important;
 }
 
 .ngx-gallery { display: inline-block; margin-bottom: 20px; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

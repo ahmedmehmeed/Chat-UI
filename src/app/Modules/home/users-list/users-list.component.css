@@ -3,8 +3,13 @@
 }
 
 .card-p-3{
-    margin-top: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-left: calc(-.1 * var(--bs-gutter-x));
+}
+
+.m-pagination {
+  margin-right: 3rem!important;
+  margin-left: 5rem!important;
 }
 
 .User-cards {
@@ -15,6 +20,10 @@
     transition: all .4s;
 }
 
+ .chat-message-list {
+  height: calc(100vh - 170px);
+  background-color: #F5F7FB;
+} 
 .page-link{
     color: blueviolet;
 }
@@ -89,6 +98,11 @@
     border-radius: 50%;
   }
   
+
+  .mat-typography p {
+    margin: 0 0 0px !important;
+}
+
 /* Media */
 
 @media (max-width: 991.98px){

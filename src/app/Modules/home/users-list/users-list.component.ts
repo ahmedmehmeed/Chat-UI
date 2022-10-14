@@ -25,12 +25,16 @@ export class UsersListComponent implements OnInit {
     userFilter:userFilter={
       pageNumber:1,
       pageSize:50,
+      minAge:25,
+      maxAge:70
     };
 
     usersPagination:Pagination;
 
    /*  UI */
    isLoading:boolean=true;
+
+
 
   ngOnInit(): void {
     this.getUsers();

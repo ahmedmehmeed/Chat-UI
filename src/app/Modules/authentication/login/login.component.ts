@@ -73,7 +73,7 @@ isSubmittedlogin:boolean=false;
       console.log(res)
       this.isSubmittedlogin=false;
     },
-    (err)=>{}
+    (err)=>{   this.isSubmittedlogin=false;}
    )
   }
 

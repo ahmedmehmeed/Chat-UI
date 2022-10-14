@@ -4,7 +4,6 @@ import { appRoutes } from '../../../Shared/Helpers/app/appRoutes';
 import { AuthGuard } from '../../../Shared/Helpers/guards/auth.guard';
 import { UnsavedChangesGuard } from '../../../Shared/Helpers/guards/unsaved-changes.guard';
 import { SharedModule } from '../sharedModule/shared.module';
-import { TestComponent } from './test/test.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UsersListComponent } from './users-list/users-list.component';

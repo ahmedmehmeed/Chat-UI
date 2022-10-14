@@ -42,3 +42,11 @@ overflow: hidden;
    overflow:hidden;              
    white-space:nowrap; 
     }
+
+    .nav-link.active{
+        border-bottom: 3px solid rgb(114,105,239);
+    }
+
+    .chat-message-list{
+        background-color: #F5F7FB;
+    }

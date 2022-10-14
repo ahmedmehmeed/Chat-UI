@@ -39,6 +39,7 @@ isUserUpdated:boolean=false;
 open: boolean = true;
 dismissible: boolean = true;
 timeout: number = 100000000000;
+active = 1;
 
 
 /* @HostListener('window:beforeunload') unloadNotification(){
@@ -170,7 +171,7 @@ updateUserDetails(){
       this.userForm.reset(this.userForm.value);
       this.modalService.dismissAll("Cross click");
     },
-    ()=>{},
+    ()=>{this.isUserUpdated=false;},
     ()=>{ this.isUserUpdated=false;}
   );
 }
@@ -180,8 +181,6 @@ openUserEditModal(modal:any,type:string){
  {
   case'DeletePhoto':
   this.openVerticallyCenteredLg(modal);
-
-
  }
 
 }
@@ -201,7 +200,7 @@ formData.append("isMain",JSON.stringify(false));
   (res)=>{
     this.userUpdatephotoRes=res;
   },
-  ()=>{},
+  ()=>{     this.isUserUpdated=false;  },
   ()=>{
      this.isUserUpdated=false;
       this.clearData()
@@ -211,12 +210,7 @@ formData.append("isMain",JSON.stringify(false));
 
 updateUserPhotoProfile(){
   this.isUserUpdated=true;
-  let data={
-    userId:this.user.id,
-    isMain:true
-  }
   const formData= new FormData();
-/*   formData.append("userId", this.user.id); */
 formData.append("photo", this.files[0]);
 formData.append("userId",this.user.id);
 formData.append("isMain",JSON.stringify(true));
