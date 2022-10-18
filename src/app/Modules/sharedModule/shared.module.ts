@@ -17,12 +17,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
-
 @NgModule({
   declarations: [
     SidebarComponent,
-    LayoutComponent
+    LayoutComponent,
+
   ],
   imports: [
     CommonModule,
@@ -40,7 +39,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatTooltipModule,
     MatSliderModule,
     NgbModule
-   
   ],
   exports:[
     TabsModule,

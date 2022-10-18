@@ -11,6 +11,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MessagesModule } from '../messages/messages.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgxGalleryModule,
     NgxSpinnerModule,
     PaginationModule.forRoot(),
-    NgSelectModule
+    NgSelectModule,
+    MessagesModule
   ]
 })
 export class HomeModule { }

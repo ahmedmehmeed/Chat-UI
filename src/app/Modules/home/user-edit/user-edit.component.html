@@ -467,20 +467,1470 @@
   <!-- end user-profile-->
 
     <!-- user-Followers/following -->
-  <div class="pt-4 mx-2 w-100 ">
+  <div class="pt-4 mx-2">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="border-bottom">
       <li [ngbNavItem]="1">
         <a ngbNavLink>Followers</a>
         <ng-template ngbNavContent>
         <!-- start chat-leftsidebar -->
-        <div class="chat-message-list w-100">
+        <div class="chat-leftsidebar me-lg-1 ms-lg-0">
 
-
-      </div>
+            <div class="tab-content">
+                <!-- Start Profile tab-pane -->
+                <div class="tab-pane" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
+                    <!-- Start profile content -->
+                    <div>
+                        <div class="px-4 pt-4">
+                            <div class="user-chat-nav float-end">
+                                <div class="dropdown">
+                                    <a href="#" class="font-size-18 text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="ri-more-2-fill"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="mb-0">My Profile</h4>
+                        </div>
+  
+                        <div class="text-center p-4 border-bottom">
+                            <div class="mb-4">
+                                <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="">
+                            </div>
+  
+                            <h5 class="font-size-16 mb-1 text-truncate">Patricia Smith</h5>
+                            <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 text-success me-1 ms-0 d-inline-block"></i> Active</p>
+                        </div>
+                        <!-- End profile user -->
+  
+                        <!-- Start user-profile-desc -->
+                        <div class="p-4 user-profile-desc" data-simplebar>
+                            <div class="text-muted">
+                                <p class="mb-4">If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual.</p>
+                            </div>
+  
+  
+                            <div id="tabprofile" class="accordion">
+                                <div class="accordion-item card border mb-2">
+                                    <div class="accordion-header" id="about2">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#about" aria-expanded="true" aria-controls="about">
+                                            <h5 class="font-size-14 m-0">
+                                                <i class="ri-user-2-line me-2 ms-0 ms-0 align-middle d-inline-block"></i> About
+                                            </h5>
+                                        </button>
+                                    </div>
+                                    <div id="about" class="accordion-collapse collapse show" aria-labelledby="about2" data-bs-parent="#tabprofile">
+                                        <div class="accordion-body">
+                                            <div>
+                                                <p class="text-muted mb-1">Name</p>
+                                                <h5 class="font-size-14">Patricia Smith</h5>
+                                            </div>
+  
+                                            <div class="mt-4">
+                                                <p class="text-muted mb-1">Email</p>
+                                                <h5 class="font-size-14">adc@123.com</h5>
+                                            </div>
+  
+                                            <div class="mt-4">
+                                                <p class="text-muted mb-1">Time</p>
+                                                <h5 class="font-size-14">11:40 AM</h5>
+                                            </div>
+  
+                                            <div class="mt-4">
+                                                <p class="text-muted mb-1">Location</p>
+                                                <h5 class="font-size-14 mb-0">California, USA</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End About card -->
+  
+                                <div class="card accordion-item border">
+                                    <div class="accordion-header" id="attachfile2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#attachfile" aria-expanded="false" aria-controls="attachfile">
+                                            <h5 class="font-size-14 m-0">
+                                                <i class="ri-attachment-line me-2 ms-0 ms-0 align-middle d-inline-block"></i> Attached Files
+                                            </h5>
+                                        </button>
+                                    </div>
+                                    <div id="attachfile" class="accordion-collapse collapse" aria-labelledby="attachfile2" data-bs-parent="#tabprofile">
+                                        <div class="accordion-body">
+                                            <div class="card p-2 border mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3 ms-0">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                                                            <i class="ri-file-text-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="text-start">
+                                                            <h5 class="font-size-14 mb-1">Admin-A.zip</h5>
+                                                            <p class="text-muted font-size-13 mb-0">12.5 MB</p>
+                                                        </div>
+                                                    </div>
+  
+                                                    <div class="ms-4 me-0">
+                                                        <ul class="list-inline mb-0 font-size-18">
+                                                            <li class="list-inline-item">
+                                                                <a href="#" class="text-muted px-1">
+                                                                    <i class="ri-download-2-line"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item dropdown">
+                                                                <a class="dropdown-toggle text-muted px-1" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="ri-more-fill"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="dropdown-item" href="#">Action</a>
+                                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+  
+                                            <div class="card p-2 border mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3 ms-0">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                                                            <i class="ri-image-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="text-start">
+                                                            <h5 class="font-size-14 mb-1">Image-1.jpg</h5>
+                                                            <p class="text-muted font-size-13 mb-0">4.2 MB</p>
+                                                        </div>
+                                                    </div>
+  
+                                                    <div class="ms-4 me-0">
+                                                        <ul class="list-inline mb-0 font-size-18">
+                                                            <li class="list-inline-item">
+                                                                <a href="#" class="text-muted px-1">
+                                                                    <i class="ri-download-2-line"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item dropdown">
+                                                                <a class="dropdown-toggle text-muted px-1" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="ri-more-fill"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="dropdown-item" href="#">Action</a>
+                                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+  
+                                            <div class="card p-2 border mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3 ms-0">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                                                            <i class="ri-image-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="text-start">
+                                                            <h5 class="font-size-14 mb-1">Image-2.jpg</h5>
+                                                            <p class="text-muted font-size-13 mb-0">3.1 MB</p>
+                                                        </div>
+                                                    </div>
+  
+                                                    <div class="ms-4 me-0">
+                                                        <ul class="list-inline mb-0 font-size-18">
+                                                            <li class="list-inline-item">
+                                                                <a href="#" class="text-muted px-1">
+                                                                    <i class="ri-download-2-line"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item dropdown">
+                                                                <a class="dropdown-toggle text-muted px-1" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="ri-more-fill"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="dropdown-item" href="#">Action</a>
+                                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+  
+                                            <div class="card p-2 border mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3 ms-0">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">
+                                                            <i class="ri-file-text-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="text-start">
+                                                            <h5 class="font-size-14 mb-1">Landing-A.zip</h5>
+                                                            <p class="text-muted font-size-13 mb-0">6.7 MB</p>
+                                                        </div>
+                                                    </div>
+  
+                                                    <div class="ms-4 me-0">
+                                                        <ul class="list-inline mb-0 font-size-18">
+                                                            <li class="list-inline-item">
+                                                                <a href="#" class="text-muted px-1">
+                                                                    <i class="ri-download-2-line"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item dropdown">
+                                                                <a class="dropdown-toggle text-muted px-1" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="ri-more-fill"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="dropdown-item" href="#">Action</a>
+                                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Attached Files card -->
+                            </div>
+                            <!-- end profile-user-accordion -->
+  
+                        </div>
+                        <!-- end user-profile-desc -->
+                    </div>
+                    <!-- End profile content -->
+                </div>
+                <!-- End Profile tab-pane -->
+  
+                <!-- Start chats tab-pane -->
+                <div class="tab-pane fade show active" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
+                    <!-- Start chats content -->
+                    <div>
+                        <div class="px-4 pt-4">
+                            <h4 class="mb-4">Chats</h4>
+                            <div class="search-box chat-search-box">            
+                                <div class="input-group mb-3 rounded-3">
+                                    <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
+                                        <i class="ri-search-line search-icon font-size-18"></i>
+                                    </span>
+                                    <input type="text" class="form-control bg-light" placeholder="Search messages or users" aria-label="Search messages or users" aria-describedby="basic-addon1">
+                                </div> 
+                            </div> <!-- Search Box-->
+                        </div> <!-- .p-4 -->
+  
+                        <!-- Start user status -->
+                        <div class="px-4 pb-4" dir="ltr">
+  
+                            <div class="owl-carousel owl-theme" id="user-status-carousel">
+                                <div class="item">
+                                    <a href="#" class="user-status-box">
+                                        <div class="avatar-xs mx-auto d-block chat-user-img online">
+                                            <img src="assets/images/users/avatar-2.jpg" alt="user-img" class="img-fluid rounded-circle">
+                                            <span class="user-status"></span>
+                                        </div>
+  
+                                        <h5 class="font-size-13 text-truncate mt-3 mb-1">Patrick</h5>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" class="user-status-box">
+                                        <div class="avatar-xs mx-auto d-block chat-user-img online">
+                                            <img src="assets/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle">
+                                            <span class="user-status"></span>
+                                        </div>
+  
+                                        <h5 class="font-size-13 text-truncate mt-3 mb-1">Doris</h5>
+                                    </a>
+                                </div>
+  
+                                <div class="item">
+                                    <a href="#" class="user-status-box">
+                                        <div class="avatar-xs mx-auto d-block chat-user-img online">
+                                            <img src="assets/images/users/avatar-5.jpg" alt="user-img" class="img-fluid rounded-circle">
+                                            <span class="user-status"></span>
+                                        </div>
+  
+                                        <h5 class="font-size-13 text-truncate mt-3 mb-1">Emily</h5>
+                                    </a>
+                                </div>
+  
+                                <div class="item">
+                                    <a href="#" class="user-status-box">
+                                        <div class="avatar-xs mx-auto d-block chat-user-img online">
+                                            <img src="assets/images/users/avatar-6.jpg" alt="user-img" class="img-fluid rounded-circle">
+                                            <span class="user-status"></span>
+                                        </div>
+  
+                                        <h5 class="font-size-13 text-truncate mt-3 mb-1">Steve</h5>
+                                    </a>
+                                </div>
+  
+                                <div class="item">
+                                    <a href="#" class="user-status-box">
+                                        <div class="avatar-xs mx-auto d-block chat-user-img online">
+                                            <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                T
+                                            </span>
+                                            <span class="user-status"></span>
+                                        </div>
+  
+                                        <h5 class="font-size-13 text-truncate mt-3 mb-1">Teresa</h5>
+                                    </a>
+                                </div>
+        
+                            </div>
+                            <!-- end user status carousel -->
+                        </div>
+                        <!-- end user status -->
+  
+                        <!-- Start chat-message-list -->
+                        <div>
+                            <h5 class="mb-3 px-3 font-size-16">Recent</h5>
+  
+                            <div class="chat-message-list px-2" data-simplebar>
+        
+                                <ul class="list-unstyled chat-list chat-user-list">
+                                    <li *ngFor="let user of followers" ngbTooltip="Click to start chat">
+                                        <a href="#">
+                                            <div class="d-flex">                            
+                                                <div class="chat-user-img online align-self-center me-3 ms-0">
+                                                    <img [src]="user.photoURL" class="rounded-circle avatar-xs" alt="">
+                                                    <span class="user-status"></span>
+                                                </div>
+                        
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="text-truncate font-size-15 mb-1">{{user.knownAs}}</h5>
+                                                    <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p>
+                                                </div>
+                                                <div class="font-size-11">05 min</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End chat-message-list -->
+                    </div>
+                    <!-- Start chats content -->
+                </div>
+                <!-- End chats tab-pane -->
+                
+                <!-- Start groups tab-pane -->
+                <div class="tab-pane" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
+                    <!-- Start Groups content -->
+                    <div>
+                        <div class="p-4">
+                            <div class="user-chat-nav float-end">
+                                <div  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Create group">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-bs-toggle="modal" data-bs-target="#addgroup-exampleModal">
+                                        <i class="ri-group-line me-1 ms-0"></i>
+                                    </button>
+                                </div>
+        
+                            </div>
+                            <h4 class="mb-4">Groups</h4>
+    
+                            <!-- Start add group Modal -->
+                            <div class="modal fade" id="addgroup-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addgroup-exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title font-size-16" id="addgroup-exampleModalLabel">Create New Group</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            </button>
+                                            </div>
+                                        <div class="modal-body p-4">
+                                            <form>
+                                                <div class="mb-4">
+                                                    <label for="addgroupname-input" class="form-label">Group Name</label>
+                                                    <input type="text" class="form-control" id="addgroupname-input" placeholder="Enter Group Name">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label class="form-label">Group Members</label>
+                                                    <div class="mb-3">
+                                                        <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#groupmembercollapse" aria-expanded="false" aria-controls="groupmembercollapse">
+                                                            Select Members
+                                                        </button>
+                                                    </div>
+  
+                                                    <div class="collapse" id="groupmembercollapse">
+                                                        <div class="card border">
+                                                            <div class="card-header">
+                                                                <h5 class="font-size-15 mb-0">Contacts</h5>
+                                                            </div>
+                                                            <div class="card-body p-2">
+                                                                <div data-simplebar style="max-height: 150px;">
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            A
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck1" checked>
+                                                                                    <label class="form-check-label" for="memberCheck1">Albert Rodarte</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck2">
+                                                                                    <label class="form-check-label" for="memberCheck2">Allison Etter</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            C
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck3">
+                                                                                    <label class="form-check-label" for="memberCheck3">Craig Smiley</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            D
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck4">
+                                                                                    <label class="form-check-label" for="memberCheck4">Daniel Clay</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            I
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck5">
+                                                                                    <label class="form-check-label" for="memberCheck5">Iris Wells</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            J
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck6">
+                                                                                    <label class="form-check-label" for="memberCheck6">Juan Flakes</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck7">
+                                                                                    <label class="form-check-label" for="memberCheck7">John Hall</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck8">
+                                                                                    <label class="form-check-label" for="memberCheck8">Joy Southern</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            M
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck9">
+                                                                                    <label class="form-check-label" for="memberCheck9">Michael Hinton</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck10">
+                                                                                    <label class="form-check-label" for="memberCheck10">Mary Farmer</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            P
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck11">
+                                                                                    <label class="form-check-label" for="memberCheck11">Phillis Griffin</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            R
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck12">
+                                                                                    <label class="form-check-label" for="memberCheck12">Rocky Jackson</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+  
+                                                                    <div>
+                                                                        <div class="p-3 fw-bold text-primary">
+                                                                            S
+                                                                        </div>
+  
+                                                                        <ul class="list-unstyled contact-list">
+                                                                            <li>
+                                                                                <div class="form-check">
+                                                                                    <input type="checkbox" class="form-check-input" id="memberCheck13">
+                                                                                    <label class="form-check-label" for="memberCheck13">Simon Velez</label>
+                                                                                </div>
+                                                                            </li>
+  
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="addgroupdescription-input" class="form-label">Description</label>
+                                                    <textarea class="form-control" id="addgroupdescription-input" rows="3" placeholder="Enter Description"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Create Groups</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End add group Modal -->
+  
+                            <div class="search-box chat-search-box">            
+                                <div class="input-group rounded-3">
+                                    <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
+                                        <i class="ri-search-line search-icon font-size-18"></i>
+                                    </span>
+                                    <input type="text" class="form-control bg-light" placeholder="Search groups..." aria-label="Search groups..." aria-describedby="basic-addon1">
+                                </div> 
+                            </div> <!-- Search Box-->
+                        </div>
+  
+                        <!-- Start chat-group-list -->
+                        <div class="p-4 chat-message-list chat-group-list" data-simplebar>
+    
+  
+                            <ul class="list-unstyled chat-list">
+                                <li>
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <div class="chat-user-img me-3 ms-0">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                        G
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate font-size-14 mb-0">#General</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+  
+                                <li>
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <div class="chat-user-img me-3 ms-0">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                        R
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate font-size-14 mb-0">#Reporting <span class="badge badge-soft-danger rounded-pill float-end">+23</span></h5>
+                                            </div>                        
+                                        </div>
+                                    </a>
+                                </li>
+  
+                                <li>
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <div class="chat-user-img me-3 ms-0">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                        D
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate font-size-14 mb-0">#Designers</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+  
+                                <li>
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <div class="chat-user-img me-3 ms-0">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                        D
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate font-size-14 mb-0">#Developers <span class="badge badge-soft-danger rounded-pill float-end">New</span></h5>
+                                            </div>
+                                        </div>
+                    
+                                    </a>
+                                </li>
+  
+                                <li>
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <div class="chat-user-img me-3 ms-0">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                        P
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate font-size-14 mb-0">#Project-alpha</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+  
+                                <li>
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <div class="chat-user-img me-3 ms-0">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                                                        B
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="text-truncate font-size-14 mb-0">#Snacks</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End chat-group-list -->
+                    </div>
+                    <!-- End Groups content -->
+                </div>
+                <!-- End groups tab-pane -->
+  
+                <!-- Start contacts tab-pane -->
+                <div class="tab-pane" id="pills-contacts" role="tabpanel" aria-labelledby="pills-contacts-tab">
+                    <!-- Start Contact content -->
+                    <div>
+                        <div class="p-4">
+                            <div class="user-chat-nav float-end">
+                                <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add Contact">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-bs-toggle="modal" data-bs-target="#addContact-exampleModal">
+                                        <i class="ri-user-add-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="mb-4">Contacts</h4>
+  
+                            <!-- Start Add contact Modal -->
+                            <div class="modal fade" id="addContact-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addContact-exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title font-size-16" id="addContact-exampleModalLabel">Add Contact</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            </button>
+                                        </div>
+                                        <div class="modal-body p-4">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="addcontactemail-input" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="addcontactemail-input" placeholder="Enter Email">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="addcontact-invitemessage-input" class="form-label">Invatation Message</label>
+                                                    <textarea class="form-control" id="addcontact-invitemessage-input" rows="3" placeholder="Enter Message"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Invite Contact</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Add contact Modal -->
+  
+                            <div class="search-box chat-search-box">
+                                <div class="input-group bg-light  input-group-lg rounded-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-link text-decoration-none text-muted pe-1 ps-3" type="button">
+                                            <i class="ri-search-line search-icon font-size-18"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control bg-light" placeholder="Search users..">
+                                </div>
+                            </div>
+                            <!-- End search-box -->
+                        </div>
+                        <!-- end p-4 -->
+  
+                        <!-- Start contact lists -->
+                        <div class="p-4 chat-message-list chat-group-list" data-simplebar>
+    
+                            <div>
+                                <div class="p-3 fw-bold text-primary">
+                                    A
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Albert Rodarte</h5>
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Allison Etter</h5>                        
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end contact list A -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    C
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Craig Smiley</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end contact list C -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    D
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Daniel Clay</h5>  
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Doris Brown</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                </ul>
+                            </div>
+                            <!-- end contact list D -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    I
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+            
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Iris Wells</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end contact list I -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    J
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Juan Flakes</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">John Hall</h5>
+                                            </div>                                                
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Joy Southern</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end contact list J -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    M
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Mary Farmer</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Mark Messer</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Michael Hinton</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                </ul>
+                            </div>
+                            <!-- end contact list M -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    O
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Ossie Wilson</h5>
+                                            </div>                        
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                </ul>
+                            </div>
+                            <!-- end contact list O -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    P
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Phillis Griffin</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Paul Haynes</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                </ul>
+                            </div>
+                            <!-- end contact list P -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    R
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Rocky Jackson</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                </ul>
+                            </div>
+                            <!-- end contact list R -->
+  
+                            <div class="mt-3">
+                                <div class="p-3 fw-bold text-primary">
+                                    S
+                                </div>
+  
+                                <ul class="list-unstyled contact-list">
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Sara Muller</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Simon Velez</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h5 class="font-size-14 m-0">Steve Walker</h5>
+                                            </div>
+                    
+                                            <div class="dropdown">
+                                                <a href="#" class="text-muted dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Share <i class="ri-share-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-end text-muted"></i></a>
+                                                    <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-end text-muted"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+  
+                                </ul>
+                            </div>
+                            <!-- end contact list S -->
+                        </div>
+                        <!-- end contact lists -->
+                    </div>
+                    <!-- Start Contact content -->
+                </div>
+                <!-- End contacts tab-pane -->
+                
+                <!-- Start settings tab-pane -->
+                <div class="tab-pane" id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab">
+                    <!-- Start Settings content -->
+                    <div>
+                        <div class="px-4 pt-4">
+                            <h4 class="mb-0">Settings</h4>
+                        </div>
+  
+                        <div class="text-center border-bottom p-4">
+                            <div class="mb-4 profile-user">
+                                <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="">
+                                <button type="button" class="btn btn-light bg-light avatar-xs p-0 rounded-circle profile-photo-edit">
+                                    <i class="ri-pencil-fill"></i>
+                                </button>
+                            </div>
+  
+                            <h5 class="font-size-16 mb-1 text-truncate">Patricia Smith</h5>
+                            <div class="dropdown d-inline-block mb-1">
+                                <a class="text-muted dropdown-toggle pb-1 d-block" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Available <i class="mdi mdi-chevron-down"></i>
+                                </a>
+      
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Available</a>
+                                  <a class="dropdown-item" href="#">Busy</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End profile user -->
+  
+                        <!-- Start User profile description -->
+                        <div class="p-4 user-profile-desc" data-simplebar>        
+                            <div id="settingprofile" class="accordion">
+                                <div class="accordion-item card border mb-2">
+                                    <div class="accordion-header" id="personalinfo1">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#personalinfo" aria-expanded="true" aria-controls="personalinfo">
+                                            <h5 class="font-size-14 m-0">Personal Info</h5>
+                                        </button>
+                                    </div>
+                                    <div id="personalinfo" class="accordion-collapse collapse show" aria-labelledby="personalinfo1" data-bs-parent="#settingprofile">
+                                        <div class="accordion-body">
+                                            <div class="float-end">
+                                                <button type="button" class="btn btn-light btn-sm"><i class="ri-edit-fill me-1 ms-0 align-middle"></i> Edit</button>
+                                            </div>
+  
+                                            <div>
+                                                <p class="text-muted mb-1">Name</p>
+                                                <h5 class="font-size-14">Patricia Smith</h5>
+                                            </div>
+  
+                                            <div class="mt-4">
+                                                <p class="text-muted mb-1">Email</p>
+                                                <h5 class="font-size-14">adc@123.com</h5>
+                                            </div>
+  
+                                            <div class="mt-4">
+                                                <p class="text-muted mb-1">Time</p>
+                                                <h5 class="font-size-14">11:40 AM</h5>
+                                            </div>
+  
+                                            <div class="mt-4">
+                                                <p class="text-muted mb-1">Location</p>
+                                                <h5 class="font-size-14 mb-0">California, USA</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end personal info card -->
+  
+                                <div class="accordion-item card border mb-2">
+                                    <div class="accordion-header" id="privacy1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy" aria-expanded="false" aria-controls="privacy">
+                                            <h5 class="font-size-14 m-0">Privacy</h5>
+                                        </button>
+                                    </div>
+                                    <div id="privacy" class="accordion-collapse collapse" aria-labelledby="privacy1" data-bs-parent="#settingprofile">
+                                        <div class="accordion-body">
+                                            <div class="py-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <h5 class="font-size-13 mb-0 text-truncate">Profile photo</h5>
+                                                    </div>
+                                                    <div class="dropdown ms-2 me-0">
+                                                        <button class="btn btn-light btn-sm dropdown-toggle w-sm" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Everyone <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="#">Everyone</a>
+                                                            <a class="dropdown-item" href="#">selected</a>
+                                                            <a class="dropdown-item" href="#">Nobody</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="py-3 border-top">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <h5 class="font-size-13 mb-0 text-truncate">Last seen</h5>
+  
+                                                    </div>
+                                                    <div class="ms-2 me-0">
+                                                        <div class="form-check form-switch">
+                                                            <input type="checkbox" class="form-check-input" id="privacy-lastseenSwitch" checked>
+                                                            <label class="form-check-label" for="privacy-lastseenSwitch"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+  
+                                            <div class="py-3 border-top">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <h5 class="font-size-13 mb-0 text-truncate">Status</h5>
+                                                    </div>
+                                                    <div class="dropdown ms-2 me-0">
+                                                        <button class="btn btn-light btn-sm dropdown-toggle w-sm" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Everyone <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="#">Everyone</a>
+                                                            <a class="dropdown-item" href="#">selected</a>
+                                                            <a class="dropdown-item" href="#">Nobody</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+  
+                                            <div class="py-3 border-top">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <h5 class="font-size-13 mb-0 text-truncate">Read receipts</h5>
+                                                    </div>
+                                                    <div class="ms-2 me-0">
+                                                        <div class="form-check form-switch">
+                                                            <input type="checkbox" class="form-check-input" id="privacy-readreceiptSwitch" checked>
+                                                            <label class="form-check-label" for="privacy-readreceiptSwitch"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <div class="py-3 border-top">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <h5 class="font-size-13 mb-0 text-truncate">Groups</h5>
+  
+                                                    </div>
+                                                    <div class="dropdown ms-2 me-0">
+                                                        <button class="btn btn-light btn-sm dropdown-toggle w-sm" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Everyone <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="#">Everyone</a>
+                                                            <a class="dropdown-item" href="#">selected</a>
+                                                            <a class="dropdown-item" href="#">Nobody</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end privacy card -->
+  
+                                <div class="accordion-item card border mb-2">
+                                    <div class="accordion-header" id="security1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#security" aria-expanded="false" aria-controls="security">
+                                            <h5 class="font-size-14 m-0"> Security</h5>
+                                        </button>
+                                    </div>
+                                    <div id="security" class="accordion-collapse collapse" aria-labelledby="security1" data-bs-parent="#settingprofile">
+                                        <div class="accordion-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <h5 class="font-size-13 mb-0 text-truncate">Show security notification</h5>
+  
+                                                </div>
+                                                <div class="ms-2 me-0">
+                                                    <div class="form-check form-switch">
+                                                        <input type="checkbox" class="form-check-input" id="security-notificationswitch">
+                                                        <label class="form-check-label" for="security-notificationswitch"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end security card -->
+  
+                                <div class="accordion-item card border mb-2">
+                                    <div class="accordion-header" id="help1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            <h5 class="font-size-14 m-0">Help</h5>
+                                        </button>
+                                    </div>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="help1" data-bs-parent="#settingprofile">
+                                        <div class="accordion-body">
+                                            <div class="py-3">
+                                                <h5 class="font-size-13 mb-0"><a href="#" class="text-body d-block">FAQs</a></h5>
+                                            </div>
+                                            <div class="py-3 border-top">
+                                                <h5 class="font-size-13 mb-0"><a href="#" class="text-body d-block">Contact</a></h5>
+                                            </div>
+                                            <div class="py-3 border-top">
+                                                <h5 class="font-size-13 mb-0"><a href="#" class="text-body d-block">Terms & Privacy policy</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end profile-setting-accordion -->
+                        </div>
+                        <!-- End User profile description -->
+                    </div>
+                    <!-- Start Settings content -->
+                </div>
+                <!-- End settings tab-pane -->
+            </div>
+            <!-- end tab content -->
+  
+        </div>
         </ng-template>
       </li>
       <li [ngbNavItem]="2">
-        <a ngbNavLink>Following</a>
+        <a ngbNavLink >Following</a>
         <ng-template ngbNavContent>
         <!-- start chat-leftsidebar -->
         <div class="chat-leftsidebar me-lg-1 ms-lg-0">
@@ -818,220 +2268,19 @@
                           <div class="chat-message-list px-2" data-simplebar>
       
                               <ul class="list-unstyled chat-list chat-user-list">
-                                  <li>
+                                  <li *ngFor="let user of followees" ngbTooltip="Click to start chat">
                                       <a href="#">
                                           <div class="d-flex">                            
                                               <div class="chat-user-img online align-self-center me-3 ms-0">
-                                                  <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="">
+                                                  <img [src]="user.photoURL" class="rounded-circle avatar-xs" alt="">
                                                   <span class="user-status"></span>
                                               </div>
                       
                                               <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Patrick Hendricks</h5>
+                                                  <h5 class="text-truncate font-size-15 mb-1">{{user.knownAs}}</h5>
                                                   <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p>
                                               </div>
                                               <div class="font-size-11">05 min</div>
-                                          </div>
-                                      </a>
-                                  </li>
-
-                                  <li class="unread">
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img away align-self-center me-3 ms-0">
-                                                  <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="">
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Mark Messer</h5>
-                                                  <p class="chat-user-message text-truncate mb-0"><i class="ri-image-fill align-middle me-1 ms-0"></i> Images</p>
-                                              </div>
-                                              <div class="font-size-11">12 min</div>        
-                                              <div class="unread-message">
-                                                  <span class="badge badge-soft-danger rounded-pill">02</span>
-                                              </div>
-                                          </div>
-                                      </a>
-                                  </li>
-
-                                  <li>
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img align-self-center me-3 ms-0">
-                                                  <div class="avatar-xs">
-                                                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                          G
-                                                      </span>
-                                                  </div>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">General</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">This theme is awesome!</p>
-                                              </div>
-                                              <div class="font-size-11">20 min</div>
-                                          </div>
-                                      </a>
-                                  </li>
-
-                                  <li class="active">
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img online align-self-center me-3 ms-0">
-                                                  <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="">
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Doris Brown</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">Nice to meet you</p>
-                                              </div>    
-                                              <div class="font-size-11">10:12 AM</div>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li class="unread">
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img align-self-center me-3 ms-0">
-                                                  <div class="avatar-xs">
-                                                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                          D
-                                                      </span>
-                                                  </div>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Designer</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">Next meeting tomorrow 10.00AM</p>
-                                              </div>
-                                              <div class="font-size-11">12:01 PM</div>
-                                              <div class="unread-message">
-                                                  <span class="badge badge-soft-danger rounded-pill">01</span>
-                                              </div>
-                                          </div>                            
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="#">                        
-                                          <div class="d-flex">
-                                              <div class="chat-user-img away align-self-center me-3 ms-0">
-                                                  <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="">
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Steve Walker</h5>
-                                                  <p class="chat-user-message text-truncate mb-0"><i class="ri-file-text-fill align-middle me-1 ms-0"></i> Admin-A.zip</p>
-                                              </div>        
-                                              <div class="font-size-11">03:20 PM</div>
-                                          </div>                        
-                                      </a>
-                                  </li>
-                                  <li class="typing">
-                                      <a href="#">                        
-                                          <div class="d-flex">
-                                              <div class="chat-user-img align-self-center online me-3 ms-0">
-                                                  <div class="avatar-xs">
-                                                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                          A
-                                                      </span>
-                                                  </div>
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Albert Rodarte</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">typing<span class="animate-typing">
-                                                      <span class="dot"></span>
-                                                      <span class="dot"></span>
-                                                      <span class="dot"></span>
-                                                  </span></p>
-                                              </div>
-                                              <div class="font-size-11">04:56 PM</div>
-                                          </div>  
-                                      </a>
-                                  </li>
-
-                                  <li>
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img align-self-center online me-3 ms-0">
-                                                  <div class="avatar-xs">
-                                                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                          M
-                                                      </span>
-                                                  </div>
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Mirta George</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">Yeah everything is fine</p>
-                                              </div>           
-                                              <div class="font-size-11">12/07</div>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img away align-self-center me-3 ms-0">
-                                                  <img src="assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs" alt="">
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Paul Haynes</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">Good morning</p>
-                                              </div>        
-                                              <div class="font-size-11">12/07</div>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img align-self-center online me-3 ms-0">
-                                                  <div class="avatar-xs">
-                                                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                          J
-                                                      </span>
-                                                  </div>
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Jonathan Miller</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">Hi, How are you?</p>
-                                              </div>                  
-                                              <div class="font-size-11">12/07</div>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img away align-self-center me-3 ms-0">
-                                                  <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs" alt="">
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Ossie Wilson</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">I've finished it! See you so</p>
-                                              </div>    
-                                              <div class="font-size-11">11/07</div>                                                       
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="#">
-                                          <div class="d-flex">
-                                              <div class="chat-user-img align-self-center online me-3 ms-0">
-                                                  <div class="avatar-xs">
-                                                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                          S
-                                                      </span>
-                                                  </div>
-                                                  <span class="user-status"></span>
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="text-truncate font-size-15 mb-1">Sara Muller</h5>
-                                                  <p class="chat-user-message text-truncate mb-0">Wow that's great</p>
-                                              </div>  
-                                              <div class="font-size-11">11/07</div>
                                           </div>
                                       </a>
                                   </li>
@@ -2147,6 +3396,12 @@
     <pre>Active: {{ active }}</pre>
     
   </div>
+<!-- user-Followers/following -->
+<div class="w-100 mx-2  d-flex justify-content-center align-items-center">
+<!--     <svg viewBox="0 0 303 172" width="360" preserveAspectRatio="xMidYMid meet" class="" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M229.565 160.229C262.212 149.245 286.931 118.241 283.39 73.4194C278.009 5.31929 212.365 -11.5738 171.472 8.48673C115.998 35.6999 108.972 40.1612 69.2388 40.1612C39.645 40.1612 9.51318 54.4147 5.7467 92.952C3.0166 120.885 13.9985 145.267 54.6373 157.716C128.599 180.373 198.017 170.844 229.565 160.229Z" fill="#DAF7F3"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M131.589 68.9422C131.593 68.9422 131.596 68.9422 131.599 68.9422C137.86 68.9422 142.935 63.6787 142.935 57.1859C142.935 50.6931 137.86 45.4297 131.599 45.4297C126.518 45.4297 122.218 48.8958 120.777 53.6723C120.022 53.4096 119.213 53.2672 118.373 53.2672C114.199 53.2672 110.815 56.7762 110.815 61.1047C110.815 65.4332 114.199 68.9422 118.373 68.9422C118.377 68.9422 118.381 68.9422 118.386 68.9422H131.589Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M105.682 128.716C109.186 128.716 112.026 125.908 112.026 122.446C112.026 118.983 109.186 116.176 105.682 116.176C104.526 116.176 103.442 116.481 102.509 117.015L102.509 116.959C102.509 110.467 97.1831 105.203 90.6129 105.203C85.3224 105.203 80.8385 108.616 79.2925 113.335C78.6052 113.143 77.88 113.041 77.1304 113.041C72.7503 113.041 69.1995 116.55 69.1995 120.878C69.1995 125.207 72.7503 128.716 77.1304 128.716C77.1341 128.716 77.1379 128.716 77.1416 128.716H105.682L105.682 128.716Z" fill="white"></path><rect x="0.445307" y="0.549558" width="50.5797" height="100.068" rx="7.5" transform="matrix(0.994522 0.104528 -0.103907 0.994587 10.5547 41.6171)" fill="#42CBA5" stroke="#316474"></rect><rect x="0.445307" y="0.549558" width="50.4027" height="99.7216" rx="7.5" transform="matrix(0.994522 0.104528 -0.103907 0.994587 10.9258 37.9564)" fill="white" stroke="#316474"></rect><path d="M57.1609 51.7354L48.5917 133.759C48.2761 136.78 45.5713 138.972 42.5503 138.654L9.58089 135.189C6.55997 134.871 4.36688 132.165 4.68251 129.144L13.2517 47.1204C13.5674 44.0992 16.2722 41.9075 19.2931 42.2251L24.5519 42.7778L47.0037 45.1376L52.2625 45.6903C55.2835 46.0078 57.4765 48.7143 57.1609 51.7354Z" fill="#EEFEFA" stroke="#316474"></path><path d="M26.2009 102.937C27.0633 103.019 27.9323 103.119 28.8023 103.21C29.0402 101.032 29.2706 98.8437 29.4916 96.6638L26.8817 96.39C26.6438 98.5681 26.4049 100.755 26.2009 102.937ZM23.4704 93.3294L25.7392 91.4955L27.5774 93.7603L28.7118 92.8434L26.8736 90.5775L29.1434 88.7438L28.2248 87.6114L25.955 89.4452L24.1179 87.1806L22.9824 88.0974L24.8207 90.3621L22.5508 92.197L23.4704 93.3294ZM22.6545 98.6148C22.5261 99.9153 22.3893 101.215 22.244 102.514C23.1206 102.623 23.9924 102.697 24.8699 102.798C25.0164 101.488 25.1451 100.184 25.2831 98.8734C24.4047 98.7813 23.5298 98.6551 22.6545 98.6148ZM39.502 89.7779C38.9965 94.579 38.4833 99.3707 37.9862 104.174C38.8656 104.257 39.7337 104.366 40.614 104.441C41.1101 99.6473 41.6138 94.8633 42.1271 90.0705C41.2625 89.9282 40.3796 89.8786 39.502 89.7779ZM35.2378 92.4459C34.8492 96.2179 34.4351 99.9873 34.0551 103.76C34.925 103.851 35.7959 103.934 36.6564 104.033C37.1028 100.121 37.482 96.1922 37.9113 92.2783C37.0562 92.1284 36.18 92.0966 35.3221 91.9722C35.2812 92.1276 35.253 92.286 35.2378 92.4459ZM31.1061 94.1821C31.0635 94.341 31.0456 94.511 31.0286 94.6726C30.7324 97.5678 30.4115 100.452 30.1238 103.348L32.7336 103.622C32.8582 102.602 32.9479 101.587 33.0639 100.567C33.2611 98.5305 33.5188 96.4921 33.6905 94.4522C32.8281 94.3712 31.9666 94.2811 31.1061 94.1821Z" fill="#316474"></path><path d="M17.892 48.4889C17.7988 49.3842 18.4576 50.1945 19.3597 50.2923C20.2665 50.3906 21.0855 49.7332 21.1792 48.8333C21.2724 47.938 20.6136 47.1277 19.7115 47.0299C18.8047 46.9316 17.9857 47.5889 17.892 48.4889Z" fill="white" stroke="#316474"></path><path d="M231.807 136.678L197.944 139.04C197.65 139.06 197.404 139.02 197.249 138.96C197.208 138.945 197.179 138.93 197.16 138.918L196.456 128.876C196.474 128.862 196.5 128.843 196.538 128.822C196.683 128.741 196.921 128.668 197.215 128.647L231.078 126.285C231.372 126.265 231.618 126.305 231.773 126.365C231.814 126.381 231.842 126.395 231.861 126.407L232.566 136.449C232.548 136.463 232.522 136.482 232.484 136.503C232.339 136.584 232.101 136.658 231.807 136.678Z" fill="white" stroke="#316474"></path><path d="M283.734 125.679L144.864 135.363C141.994 135.563 139.493 133.4 139.293 130.54L133.059 41.6349C132.858 38.7751 135.031 36.2858 137.903 36.0856L276.773 26.4008C279.647 26.2005 282.144 28.364 282.345 31.2238L288.578 120.129C288.779 122.989 286.607 125.478 283.734 125.679Z" fill="white"></path><path d="M144.864 135.363C141.994 135.563 139.493 133.4 139.293 130.54L133.059 41.6349C132.858 38.7751 135.031 36.2858 137.903 36.0856L276.773 26.4008C279.647 26.2004 282.144 28.364 282.345 31.2238L288.578 120.129C288.779 122.989 286.607 125.478 283.734 125.679" stroke="#316474"></path><path d="M278.565 121.405L148.68 130.463C146.256 130.632 144.174 128.861 144.012 126.55L138.343 45.695C138.181 43.3846 139.994 41.3414 142.419 41.1723L272.304 32.1142C274.731 31.945 276.81 33.7166 276.972 36.0271L282.641 116.882C282.803 119.193 280.992 121.236 278.565 121.405Z" fill="#EEFEFA" stroke="#316474"></path><path d="M230.198 129.97L298.691 125.193L299.111 131.189C299.166 131.97 299.013 132.667 298.748 133.161C298.478 133.661 298.137 133.887 297.825 133.909L132.794 145.418C132.482 145.44 132.113 145.263 131.777 144.805C131.445 144.353 131.196 143.684 131.141 142.903L130.721 136.907L199.215 132.131C199.476 132.921 199.867 133.614 200.357 134.129C200.929 134.729 201.665 135.115 202.482 135.058L227.371 133.322C228.188 133.265 228.862 132.782 229.345 132.108C229.758 131.531 230.05 130.79 230.198 129.97Z" fill="#42CBA5" stroke="#316474"></path><path d="M230.367 129.051L300.275 124.175L300.533 127.851C300.591 128.681 299.964 129.403 299.13 129.461L130.858 141.196C130.025 141.254 129.303 140.627 129.245 139.797L128.987 136.121L198.896 131.245C199.485 132.391 200.709 133.147 202.084 133.051L227.462 131.281C228.836 131.185 229.943 130.268 230.367 129.051Z" fill="white" stroke="#316474"></path><ellipse rx="15.9969" ry="15.9971" transform="matrix(0.997577 -0.0695704 0.0699429 0.997551 210.659 83.553)" fill="#42CBA5" stroke="#316474"></ellipse><path d="M208.184 87.1094L204.777 84.3593C204.777 84.359 204.776 84.3587 204.776 84.3583C203.957 83.6906 202.744 83.8012 202.061 84.6073C201.374 85.4191 201.486 86.6265 202.31 87.2997L202.312 87.3011L207.389 91.4116C207.389 91.4119 207.389 91.4121 207.389 91.4124C208.278 92.1372 209.611 91.9373 210.242 90.9795L218.283 78.77C218.868 77.8813 218.608 76.6968 217.71 76.127C216.817 75.5606 215.624 75.8109 215.043 76.6939L208.184 87.1094Z" fill="white" stroke="#316474"></path></svg>
+ -->
+ <img src="../../../../assets/images/4e79b7a983c01df927b8d0f42e799b35.gif" alt="user-img" >
+</div>
 
 
 

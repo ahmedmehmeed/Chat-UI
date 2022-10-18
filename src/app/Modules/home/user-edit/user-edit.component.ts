@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
@@ -11,13 +11,15 @@ import { UsersService } from '../../../../Shared/Services/User/users.service';
 import Swal from 'sweetalert2'
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PhotoDto } from '../../../../Shared/Models/userDetails/PhotoDto';
+import { FollowService } from '../../../../Shared/Services/Follow/follow.service';
+import { follow } from '../../../../Shared/Models/follow/follows';
 
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent implements OnInit,AfterViewInit  {
   
 /* State */
 user:userDetails;
@@ -29,6 +31,9 @@ photos?: PhotoDto[];
 userForm:FormGroup;
 galleryOptions: NgxGalleryOptions[];
 galleryImages: NgxGalleryImage[];
+followees:follow[];
+followers:follow[];
+
 files: File[] = [];
 userUpdatephotoRes:any;
 defaultImage="../../../../assets/images/defaultimg.jpg"
@@ -70,14 +75,23 @@ active = 1;
     private toastr:ToastrService,
     private modalService: NgbModal,
     private http :HttpClient,
-    private SpinnerService: NgxSpinnerService
+    private SpinnerService: NgxSpinnerService,
+    private followService:FollowService
     ) { }
+
+  ngAfterViewInit(): void {
+ 
+  }
 
   ngOnInit(): void {
     this.getUserDetails();
     this.updateUserFormValidators();
+    this.getFollowees();
+    this.getFollowers();
     this.setUserFormData();
   }
+
+  
 
 getUserDetails(){
  const id = this.activatedRoute.snapshot.paramMap.get("id");
@@ -98,6 +112,22 @@ getUserDetails(){
    }
   )
 }
+
+getFollowers(){
+this.followService.getfollow("follow").subscribe(
+  (res)=>{
+    this.followees=res;
+  }
+)
+}
+
+getFollowees(){
+  this.followService.getfollow("followby").subscribe(
+    (res)=>{
+      this.followers=res;
+    }
+  )
+  }
 
 updateUserFormValidators(){
 this.userForm=this.builder.group({
@@ -310,6 +340,7 @@ this.user.photoDto?.forEach(p => {
  });
  this.files =files;
  } */
+
  onSelect(event) {
    console.log(event);
    this.files.push(...event.addedFiles);

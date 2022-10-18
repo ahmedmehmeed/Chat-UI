@@ -50,3 +50,9 @@ overflow: hidden;
     .chat-message-list{
         background-color: #F5F7FB;
     }
+    .bg-gray{
+        background-color: #F5F7FB !important; 
+    }
+    .bg-j{
+        background-color: #EFF6EF
+    }
