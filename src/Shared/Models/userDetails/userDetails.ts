@@ -2,8 +2,9 @@ import { PhotoDto } from "./PhotoDto";
 
     export interface userDetails {
         id: string;
-        firstName?: any;
-        lastName?: any;
+        firstName?: string;
+        lastName?: string;
+        userName?: string;
         age?: number;
         photoURL?: string;
         birthDate: string;

@@ -8,7 +8,6 @@ import { SharedModule } from '../sharedModule/shared.module';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MessagesModule } from '../messages/messages.module';
@@ -29,7 +28,6 @@ import { MessagesModule } from '../messages/messages.module';
     FormsModule,
     ReactiveFormsModule,
     NgxGalleryModule,
-    NgxSpinnerModule,
     PaginationModule.forRoot(),
     NgSelectModule,
     MessagesModule

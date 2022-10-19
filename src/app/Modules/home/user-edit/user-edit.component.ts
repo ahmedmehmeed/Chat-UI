@@ -13,6 +13,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { PhotoDto } from '../../../../Shared/Models/userDetails/PhotoDto';
 import { FollowService } from '../../../../Shared/Services/Follow/follow.service';
 import { follow } from '../../../../Shared/Models/follow/follows';
+import { ChatService } from '../../../../Shared/Services/Message/chat.service';
+import { chatMessage } from '../../../../Shared/Models/Messages/chatMessage';
 
 @Component({
   selector: 'app-user-edit',
@@ -33,14 +35,16 @@ galleryOptions: NgxGalleryOptions[];
 galleryImages: NgxGalleryImage[];
 followees:follow[];
 followers:follow[];
-
+userDetails:any
 files: File[] = [];
 userUpdatephotoRes:any;
 defaultImage="../../../../assets/images/defaultimg.jpg"
+Messages:chatMessage[][] ;
 
 /* uiState */
 isLoading:boolean=true;
 isUserUpdated:boolean=false;
+showchat:boolean=false;
 open: boolean = true;
 dismissible: boolean = true;
 timeout: number = 100000000000;
@@ -76,7 +80,8 @@ active = 1;
     private modalService: NgbModal,
     private http :HttpClient,
     private SpinnerService: NgxSpinnerService,
-    private followService:FollowService
+    private followService:FollowService,
+    private chatService:ChatService, 
     ) { }
 
   ngAfterViewInit(): void {
@@ -145,6 +150,24 @@ this.userForm=this.builder.group({
   country: ["",[Validators.required]],
   /* photoDto: ["",[Validators.required]], */
 })
+}
+
+openChat(user:any){
+this.userDetails=user;
+this.showchat=true;
+this.SpinnerService.show(); 
+this.chatService.getMessagesThread(this.userDetails.userName).subscribe(
+  (res:any)=>{
+    this.Messages=res;
+    console.log(this.Messages)
+  },
+  ()=>{},
+  ()=>{ 
+     this.SpinnerService.hide();
+     }
+)
+
+
 }
 
 get getUpdateUserFormControls():any{

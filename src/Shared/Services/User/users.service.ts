@@ -54,8 +54,5 @@ export class UsersService {
   DeleteUser(id:string){
      this.http.delete(this.apiUrl+ApiRoutes.user.userDelete+id);
   }
-
-
-
-
+ 
 }
