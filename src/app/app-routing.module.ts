@@ -28,12 +28,6 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AuthGuard],  
   },  
-/*   {
-    path: appRoutes.home.full,
-    loadChildren: () => import("../app/Modules/home/home.module").then((m) => m.HomeModule),
-    
-  }, */
-
  {
     path: "",
     component: LayoutComponent,

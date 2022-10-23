@@ -1,7 +1,7 @@
  <div class="container-fluid h-100" *ngIf="!isLoading">
+           <!-- Start Users Filter -->
     <div class="row">
         <div id="settingprofile" class="accordion">
-            <!-- Start personal info card -->
            <div class="accordion-item card border my-2">
              <div class="accordion-header" id="personalinfo1">
                <button
@@ -37,9 +37,9 @@
                         <ng-option value="female">Female</ng-option>
                      </ng-select>
                     </div>
-<div class="col-2">
+                    <div class="col-2">
 
-</div>
+                     </div>
                     <div class="col-md-6 col-lg-4">
                         <p class="text-muted mb-1">Age Range</p>
                         <p class="mb-0">
@@ -111,9 +111,10 @@
               <ng-option [value]="usersPagination.totalItems">all</ng-option>
            </ng-select>
               </div>
-  </div>
+    </div>
+
     <div class="chat-message-list " data-simplebar>
-        <div class="row card-p-3 w-100 "  >   
+        <div class="row card-p-3 w-100 mb-5">   
             <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2" *ngFor="let user of Users">
                 <app-user-card [user]="user"></app-user-card>
              </div>

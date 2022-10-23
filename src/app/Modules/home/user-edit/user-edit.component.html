@@ -470,7 +470,7 @@
   <div class="pt-4 mx-2">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="border-bottom">
       <li [ngbNavItem]="1">
-        <a ngbNavLink>Followers</a>
+        <a ngbNavLink>{{followers?.length}}  Followers</a>
         <ng-template ngbNavContent>
         <!-- start chat-leftsidebar -->
         <div class="chat-leftsidebar me-lg-1 ms-lg-0">
@@ -478,7 +478,7 @@
             <div class="tab-content">
   
                 <!-- Start chats tab-pane -->
-                <div class="tab-pane fade show active" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
+                <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="pills-chat-tab">
                     <!-- Start chats content -->
                     <div>
                         <div class="px-4 pt-4">
@@ -504,7 +504,7 @@
                                             <div class="d-flex">                            
                                                 <div class="chat-user-img online align-self-center me-3 ms-0">
                                                     <img [src]="user.photoURL" class="rounded-circle avatar-xs" alt="">
-                                                    <span class="user-status"></span>
+                                                    <span class="user-status" *n></span>
                                                 </div>
                         
                                                 <div class="flex-grow-1 overflow-hidden">
@@ -531,7 +531,7 @@
         </ng-template>
       </li>
       <li [ngbNavItem]="2">
-        <a ngbNavLink >Following</a>
+        <a ngbNavLink >{{followees?.length}}  Following</a>
         <ng-template ngbNavContent>
         <!-- start chat-leftsidebar -->
         <div class="chat-leftsidebar me-lg-1 ms-lg-0">
@@ -540,7 +540,7 @@
               <!-- End Profile tab-pane -->
 
               <!-- Start chats tab-pane -->
-              <div class="tab-pane fade show active" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
+              <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="pills-chat-tab">
                   <!-- Start chats content -->
                   <div>
                       <div class="px-4 pt-4">

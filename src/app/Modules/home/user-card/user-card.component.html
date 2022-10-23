@@ -5,16 +5,16 @@
 <ul class="list-inline member-icons animate text-center user-icon">
     <li class="list-inline-item p-1" >
         <button class="btn btn-primary" (click)="showUserDetails(user)">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-user" ngbTooltip="Member Profile" ></i>
         </button>
     </li>
     <li class="list-inline-item p-1">        
-        <button class="btn btn-primary" (click)="followUser(user)"   >
-            <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <button class="btn btn-primary" (click)="followUser(user)" ngbTooltip="Follow" >
+            <i class="fa fa-user-plus" aria-hidden="true" ></i>
         </button>
     </li>
     <li class="list-inline-item p-1">
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" ngbTooltip="Message"  >
             <i class="fa fa-envelope"></i>
         </button>
     </li>

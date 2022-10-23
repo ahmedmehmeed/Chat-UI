@@ -8,7 +8,8 @@ export const appRoutes = {
            full: "authentication/login",
            main: "login",
            sub: ""
-        },   
+        },  
+
         register: {
             full: "authentication/register",
             main: "register",
@@ -32,11 +33,22 @@ export const appRoutes = {
          sub: ""
       },  
       userEdit: {
-         full: "home/editUser/",
-         main: "editUser/:id",
+         full: "home/profile/",
+         main: "profile/:id",
          sub: ""
       },  
 
-         }
+         },
+
+       MembersChat:{
+         full: "chat",
+         main: "chat",
+         sub: "",
+         userDetails: {
+            full: "chat/member/",
+            main: "chat/:id",
+            sub: ""
+         }, 
+       }  
 
 }

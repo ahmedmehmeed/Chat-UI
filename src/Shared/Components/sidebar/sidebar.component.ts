@@ -35,7 +35,7 @@ defaultImage="../../../../assets/images/defaultimg.jpg"
   }
 
   navigatetoMyProfile(){
-   this.router.navigate(['home/editUser/'+this.userId])
+   this.router.navigate(['home/profile/'+this.userId])
   }
 
 

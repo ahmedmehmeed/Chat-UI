@@ -7,6 +7,7 @@ import { userDetails } from '../../../../Shared/Models/userDetails/userDetails';
 import { ChatService } from '../../../../Shared/Services/Message/chat.service';
 import {Clipboard} from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
+import { LocalStorageKeys } from '../../../../Shared/Helpers/app/LocalStorageKeys';
 
 @Component({
   selector: 'app-chat',
@@ -32,10 +33,11 @@ export class ChatComponent implements OnInit {
   @Input() Messages:chatMessage[][] ;
   @Input() messageDeleted:chatMessage ;
   messageModel:message;
-
+  currentUserId:string;
 
   ngOnInit(): void {
     this.GetMessageThread();
+    this.currentUserId=localStorage.getItem(LocalStorageKeys.UserId)
   }
 
 
