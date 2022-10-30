@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
@@ -15,13 +15,15 @@ import { FollowService } from '../../../../Shared/Services/Follow/follow.service
 import { follow } from '../../../../Shared/Models/follow/follows';
 import { ChatService } from '../../../../Shared/Services/Message/chat.service';
 import { chatMessage } from '../../../../Shared/Models/Messages/chatMessage';
+import { PresenceService } from '../../../../Shared/Services/User/presence.service';
+import { LocalStorageKeys } from '../../../../Shared/Helpers/app/LocalStorageKeys';
 
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
-export class UserEditComponent implements OnInit,AfterViewInit  {
+export class UserEditComponent implements OnInit,AfterViewInit,OnDestroy  {
   
 /* State */
 user:userDetails;
@@ -82,6 +84,7 @@ active = 1;
     private SpinnerService: NgxSpinnerService,
     private followService:FollowService,
     private chatService:ChatService, 
+    public presenceService:PresenceService
     ) { }
 
   ngAfterViewInit(): void {
@@ -94,6 +97,7 @@ active = 1;
     this.getFollowees();
     this.getFollowers();
     this.setUserFormData();
+  this.presenceService.createHubConnection(localStorage.getItem(LocalStorageKeys.JWT)); 
   }
 
   
@@ -151,12 +155,12 @@ this.userForm=this.builder.group({
   /* photoDto: ["",[Validators.required]], */
 })
 }
-
-openChat(user:any){
+//tranditional request
+/* openChat(user:any){
 this.userDetails=user;
 this.showchat=true;
 this.SpinnerService.show(); 
-this.chatService.getMessagesThread(this.userDetails.userName).subscribe(
+ this.chatService.getMessagesThread(this.userDetails.userName).subscribe(
   (res:any)=>{
     this.Messages=res;
     console.log(this.Messages)
@@ -164,11 +168,15 @@ this.chatService.getMessagesThread(this.userDetails.userName).subscribe(
   ()=>{},
   ()=>{ 
      this.SpinnerService.hide();
-     }
-)
+     })
 
+} */
+openChat(user:any){
+  this.userDetails=user;
+  this.showchat=true;
+  this.chatService.MessageHubConnection(localStorage.getItem(LocalStorageKeys.JWT),this.userDetails.userName) 
+  }
 
-}
 
 get getUpdateUserFormControls():any{
 return this.userForm.controls;
@@ -378,5 +386,15 @@ clearData() {
   this.userForm.reset();
   this.modalService.dismissAll("Cross click");
 }
+
+ngOnDestroy(): void {
+  if(this.presenceService.hubConnection)
+    this.presenceService.stopHubConnection()
+
+    if(this.chatService.hubConnection)
+    this.chatService.stopHubConnection()
+}
+
+
 
 }

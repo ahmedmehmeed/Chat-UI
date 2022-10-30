@@ -504,7 +504,7 @@
                                             <div class="d-flex">                            
                                                 <div class="chat-user-img online align-self-center me-3 ms-0">
                                                     <img [src]="user.photoURL" class="rounded-circle avatar-xs" alt="">
-                                                    <span class="user-status" *n></span>
+                                                    <span class="user-status" *ngIf="(presenceService.onlineUser|async).includes(user.userName)"></span>
                                                 </div>
                         
                                                 <div class="flex-grow-1 overflow-hidden">
@@ -569,7 +569,7 @@
                                           <div class="d-flex">                            
                                               <div class="chat-user-img online align-self-center me-3 ms-0">
                                                   <img [src]="user.photoURL" class="rounded-circle avatar-xs" alt="">
-                                                  <span class="user-status"></span>
+                                                  <span class="user-status" *ngIf="(presenceService.onlineUser|async).includes(user.userName)"></span>
                                               </div>
                       
                                               <div class="flex-grow-1 overflow-hidden">
@@ -610,7 +610,7 @@
  <img src="../../../../assets/images/4e79b7a983c01df927b8d0f42e799b35.gif" alt="user-img" >
 </div>
 <!-- user-Followers/following -->
-<app-chat [userDetails]='userDetails' [Messages]='Messages'  class="w-100" *ngIf="showchat"> </app-chat>
+<app-chat [userDetails]='userDetails'   class="w-100" *ngIf="showchat"> </app-chat>
 
 
 </div>
@@ -820,6 +820,7 @@
   </div>
   <div class="modal-footer">
     <button
+    [disabled]="!userForm.dirty || userForm.invalid"
       class="btn btn-primary waves-effect waves-light w-100"
       (click)="updateUserDetails()"
     

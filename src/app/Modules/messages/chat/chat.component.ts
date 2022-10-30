@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { chatMessage } from '../../../../Shared/Models/Messages/chatMessage';
@@ -8,21 +8,25 @@ import { ChatService } from '../../../../Shared/Services/Message/chat.service';
 import {Clipboard} from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { LocalStorageKeys } from '../../../../Shared/Helpers/app/LocalStorageKeys';
+import { PresenceService } from '../../../../Shared/Services/User/presence.service';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit,OnDestroy {
 
   constructor(
-    private chatService:ChatService,
+    public chatService:ChatService,
     private SpinnerService: NgxSpinnerService,
     private toastr:ToastrService,
     private clipboard: Clipboard,
-    private router :Router
+    private router :Router,
+    public presenceService:PresenceService
+
     ) { }
+
   /*   ui */
   isLoading:boolean=true;
   isMessageSend:boolean=false;
@@ -36,8 +40,8 @@ export class ChatComponent implements OnInit {
   currentUserId:string;
 
   ngOnInit(): void {
-    this.GetMessageThread();
-    this.currentUserId=localStorage.getItem(LocalStorageKeys.UserId)
+/*    this.GetMessageThread(); */
+   this.currentUserId=localStorage.getItem(LocalStorageKeys.UserId)
   }
 
 
@@ -46,15 +50,19 @@ this.messageModel={
   receiverUsername:this.userDetails.userName,
   content:this.messageContent
 }
-this.chatService.sendMessage(this.messageModel).subscribe(
+/* this.chatService.sendMessage(this.messageModel).subscribe(
   ()=>{
    this.messageContent='' 
-  }
-)
-
+  }) */
+  this.chatService.sendMessage(this.messageModel).then(
+    (res)=>{
+      this.messageContent='' 
+    }
+  )
+ 
 }
-
-GetMessageThread(){
+//Traditional Method
+/* GetMessageThread(){
   this.SpinnerService.show(); 
   this.chatService.getMessagesThread(this.userDetails.userName).subscribe(
     (res:any)=>{
@@ -64,10 +72,13 @@ GetMessageThread(){
     ()=>{},
     ()=>{ 
        this.SpinnerService.hide();
-       }
-  )
-  
-  }
+       })
+  } */
+
+
+  GetMessageThread(){
+    this.chatService.MessageHubConnection(localStorage.getItem(LocalStorageKeys.JWT),this.userDetails.userName)
+    }
 
 deleteMessage(id:string){
     this.chatService.deleteMessage(id).subscribe(
@@ -90,5 +101,8 @@ copyMessageToClipboard(message:string){
   this.clipboard.copy(message);
 }
 
+ngOnDestroy(): void {
+ this.chatService.stopHubConnection();
+}
 
 }

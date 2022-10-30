@@ -9,7 +9,7 @@ import { appRoutes } from '../../Helpers/app/appRoutes';
 import { LocalStorageKeys } from '../../Helpers/app/LocalStorageKeys';
 import{login} from '../../Models/Auth/Login'
 import{register} from '../../Models/Auth/register'
-import { loginResponse } from '../../Models/loginResponse';
+import { PresenceService } from '../User/presence.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AuthService {
 
   isLogedIn=new BehaviorSubject<boolean>(this.isTokenAvailable());
   private apiUrl = environment.apiUrl;
-  constructor(private http: HttpClient,private router : Router){ }
+  constructor(private http: HttpClient,private router : Router ,private presence:PresenceService){ }
 
 login(login:login){
 return this.http.post(this.apiUrl+ApiRoutes.account.login,login).pipe(
@@ -26,6 +26,7 @@ return this.http.post(this.apiUrl+ApiRoutes.account.login,login).pipe(
     if(res.isSuccess){
       localStorage.setItem(LocalStorageKeys.JWT,res.token)
       localStorage.setItem(LocalStorageKeys.UserId,res.userId)
+      this.presence.createHubConnection(res.token);
       this.setLogedIn(true)
       console.log(this.isLogedIn.value)
       this.router.navigate([appRoutes.home.full]);
@@ -40,6 +41,7 @@ return this.http.post(this.apiUrl+ApiRoutes.account.register,register).pipe(
     if(res.isSuccess){
       localStorage.setItem(LocalStorageKeys.JWT,res.token)
       this.setLogedIn(true)
+      this.presence.createHubConnection(res.token);
       this.router.navigate([appRoutes.home.full]);
     }
   })
@@ -47,10 +49,10 @@ return this.http.post(this.apiUrl+ApiRoutes.account.register,register).pipe(
 }
 
 logout(){
+  if(this.presence.hubConnection){  this.presence.stopHubConnection();}
   this.setLogedIn(false)
   localStorage.removeItem(LocalStorageKeys.JWT)
   this.router.navigate([appRoutes.Authentication.login.main]);
-
 }
 
 setLogedIn(isLogedIn:boolean){

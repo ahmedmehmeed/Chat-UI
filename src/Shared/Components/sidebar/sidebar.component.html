@@ -19,8 +19,8 @@
                 <!-- Start side-menu nav -->
                 <div class="flex-lg-column my-auto">
                     <ul class="nav nav-pills side-menu-nav justify-content-center" role="tablist">
-                        <li routerLink="/home" class="nav-item" data-bs-toggle="tooltip"   data-bs-placement="top" title="Memebers">
-                            <a class="nav-link" id="pills-groups-tab" data-bs-toggle="pill"  role="tab">
+                        <li routerLink="/home" class="nav-item"    title="Members">
+                            <a class="nav-link"   role="tab" routerLinkActive="true" [routerLinkActive]="['is-active']">
                                 <i class="ri-group-line"></i>
                             </a>
                         </li>
@@ -34,18 +34,18 @@
                                 <i class="ri-user-2-line"></i>
                             </a>
                         </li> -->
-                        <li routerLink="/chat"   class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Chats">
-                            <a class="nav-link active" routerLinkActive="/chat" role="tab">
+                        <li routerLink="/chat"   class="nav-item" title="Chats">
+                            <a class="nav-link"  role="tab" [routerLinkActive]="['is-active']">
                                 <i class="ri-message-3-line"></i>
                             </a>
                         </li>
-                        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacts">
-                            <a class="nav-link" id="pills-contacts-tab" data-bs-toggle="pill" role="tab">
+                        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacts" >
+                            <a class="nav-link"  data-bs-toggle="pill" role="tab" [routerLinkActive]="['is-active']">
                                 <i class="ri-contacts-line"></i>
                             </a>
                         </li>
                         <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings">
-                            <a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#pills-setting" role="tab">
+                            <a class="nav-link"  data-bs-toggle="pill"  role="tab" [routerLinkActive]="['is-active']">
                                 <i class="ri-settings-2-line"></i>
                             </a>
                         </li>

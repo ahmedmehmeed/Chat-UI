@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { LocalStorageKeys } from '../../../../Shared/Helpers/app/LocalStorageKeys';
 import { userDetails } from '../../../../Shared/Models/userDetails/userDetails';
+import { ChatService } from '../../../../Shared/Services/Message/chat.service';
+import { PresenceService } from '../../../../Shared/Services/User/presence.service';
 import { UsersService } from '../../../../Shared/Services/User/users.service';
 
 @Component({
@@ -20,10 +23,18 @@ isLoading:boolean=true;
 galleryOptions: NgxGalleryOptions[];
 galleryImages: NgxGalleryImage[];
 
-  constructor(private activeRoute:ActivatedRoute,private userService:UsersService,   private SpinnerService: NgxSpinnerService) { }
+  constructor(
+    private activeRoute:ActivatedRoute,
+    private userService:UsersService,
+    private SpinnerService: NgxSpinnerService,
+    public presenceService: PresenceService,
+    private chatService:ChatService, 
+    
+       ) { }
 
   ngOnInit(): void {
     this.getUserDetails();
+    this.GetMessageThread();
   }
 
   getUserDetails(){
@@ -105,5 +116,9 @@ galleryImages: NgxGalleryImage[];
    )
    return images;
  }
+ 
+ GetMessageThread(){
+  this.chatService.MessageHubConnection(localStorage.getItem(LocalStorageKeys.JWT),this.userDetails.userName)
+  }
 
 }

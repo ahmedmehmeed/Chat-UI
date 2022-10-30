@@ -32,7 +32,6 @@ isSubmittedlogin:boolean=false;
     this.initForms();
     this.initIslogedIn();
     this.validation();
-
   }
 
   

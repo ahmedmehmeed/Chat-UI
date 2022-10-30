@@ -14,13 +14,13 @@
                                     <img [src]="userDetails.photoURL" class="rounded-circle avatar-xs" alt="">
                                 </div>
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <h5 class="font-size-16 mb-0 text-truncate">
+<!--                                     <h5 class="font-size-16 mb-0 text-truncate">
                                         <a href="#" class="text-reset user-profile-show" *ngIf="userDetails.firstName && userDetails.lastName">{{userDetails.firstName}} {{userDetails.lastName}}</a> 
                                         <i *ngIf="userDetails.firstName && userDetails.lastName" class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1"></i>
-                                    </h5>
+                                    </h5> -->
                                     <h5 class="font-size-16 mb-0 text-truncate">
-                                        <a href="#" class="text-reset user-profile-show" *ngIf="!(userDetails.firstName && userDetails.lastName)">{{userDetails.userName}}</a>
-                                         <i *ngIf="!(userDetails.firstName && userDetails.lastName)" class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1"></i>
+                                        <a href="#" class="text-reset user-profile-show" >{{userDetails.userName}}</a>
+                                         <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1" *ngIf="(presenceService.onlineUser|async).includes(userDetails.userName)" ></i>
                                     </h5>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
 
                 <!-- start chat conversation -->
                 <div class="chat-conversation p-3 p-lg-4" data-simplebar="init">
-                    <ul class="list-unstyled mb-0" *ngFor="let messages of Messages">
+                    <ul class="list-unstyled mb-0" *ngFor="let messages of (chatService.messagesThread$|async)">
                         <li> 
                             <div class="chat-day-title">
                                 <span class="title">{{messages[0].dateMessageSent|date:'d/M/yy'}}</span>
