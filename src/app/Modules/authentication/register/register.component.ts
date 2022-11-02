@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { PasswordStrengthValidator } from '../../../../Shared/Helpers/validators/password-strength-validator';
 import { AuthService } from '../../../../Shared/Services/Auth/authservice';
 
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService:AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -56,8 +58,7 @@ export class RegisterComponent implements OnInit {
     console.log("this.RegisterForm.value",this.RegisterForm.value)
    this.authService.register(this.RegisterForm.value).subscribe(
      (res)=>{
-       console.log(res)
-       this.isRegistered=false;
+       this.toastr.success("You have successfully created your account. Please check your email for confirmation")
      },
      ()=>{ this.isRegistered=false;},
      ()=>{ this.isRegistered=false;}

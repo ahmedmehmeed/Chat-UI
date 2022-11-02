@@ -9,12 +9,14 @@ import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../sharedModule/shared.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmailConfirmedComponent } from './email-confirmed/email-confirmed.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ErrorComponent
+    ErrorComponent,
+    EmailConfirmedComponent
   ],
   imports: [
     CommonModule,

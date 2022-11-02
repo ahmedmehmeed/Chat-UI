@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PasswordStrengthValidator } from '../../../../Shared/Helpers/validators/password-strength-validator';
 import { AuthService } from '../../../../Shared/Services/Auth/authservice';
+import { PresenceService } from '../../../../Shared/Services/User/presence.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ isSubmittedlogin:boolean=false;
     private authService:AuthService,
     private formBuilder: FormBuilder,
     private router:Router,
-    private toastr:ToastrService
+    private toastr:ToastrService,
     ) { }
 
 
@@ -32,6 +33,7 @@ isSubmittedlogin:boolean=false;
     this.initForms();
     this.initIslogedIn();
     this.validation();
+/*     this.presence.stopHubConnection(); */
   }
 
   

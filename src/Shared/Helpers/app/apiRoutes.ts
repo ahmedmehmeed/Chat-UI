@@ -1,7 +1,8 @@
 export const ApiRoutes={
 account:{
     login:'Account/Login',
-    register:'Account/Register'
+    register:'Account/Register',
+    emailConfirmed:'Account/Confirm-Email'
 },
 
 user:{

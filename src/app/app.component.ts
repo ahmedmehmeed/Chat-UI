@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LocalStorageKeys } from '../Shared/Helpers/app/LocalStorageKeys';
 import { PresenceService } from '../Shared/Services/User/presence.service';
 
@@ -7,7 +7,7 @@ import { PresenceService } from '../Shared/Services/User/presence.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,OnDestroy{
 constructor(
   private presence:PresenceService
   ){
@@ -19,4 +19,9 @@ constructor(
   }
   
   title = 'Chat-UI';
+
+  ngOnDestroy(): void {
+/*    this.presence.stopHubConnection(); 
+ */  }
+
 }
