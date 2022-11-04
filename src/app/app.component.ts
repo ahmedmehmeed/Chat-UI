@@ -15,13 +15,14 @@ constructor(
   }
 
   ngOnInit(): void {
-    this.presence.createHubConnection(localStorage.getItem(LocalStorageKeys.JWT))
+    if(localStorage.getItem(LocalStorageKeys.JWT)){   this.presence.createHubConnection(localStorage.getItem(LocalStorageKeys.JWT))}
+ 
   }
   
   title = 'Chat-UI';
 
   ngOnDestroy(): void {
-/*    this.presence.stopHubConnection(); 
- */  }
+   /* this.presence.stopHubConnection();  */
+  }
 
 }

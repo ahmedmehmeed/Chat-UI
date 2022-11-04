@@ -88,7 +88,7 @@ active = 1;
     ) { }
 
   ngAfterViewInit(): void {
- 
+  
   }
 
   ngOnInit(): void {
@@ -96,7 +96,6 @@ active = 1;
     this.updateUserFormValidators();
     this.getFollowees();
     this.getFollowers();
-    this.setUserFormData();
   this.presenceService.createHubConnection(localStorage.getItem(LocalStorageKeys.JWT)); 
   }
 
@@ -118,6 +117,7 @@ getUserDetails(){
       console.log(this.galleryImages)
       this.isLoading=false;
       this.SpinnerService.hide();  
+      this.setUserFormData();
    }
   )
 }
@@ -171,6 +171,8 @@ this.SpinnerService.show();
      })
 
 } */
+
+
 openChat(user:any){
   this.userDetails=user;
   this.showchat=true;
@@ -199,7 +201,6 @@ setUserFormData(){
 /*     photoDto:this.user.photoDto, */
   })
 }
-
 
 openUpdatePersonalData() {
   this.setUserFormData();
